@@ -64,7 +64,15 @@ public class MazeActorController {
 
         playerPos = x;
 
-        //TODO: ADD IF PLAYER IS MOVING TOWARDS A CAT OR CHEESE.
+        if(playerPos == cheesePos){
+            placeCheese(gameMaze);
+            MazeGame.numCheeseCollected++;
+        }
+        if(playerPos == cat1Pos || playerPos == cat2Pos || playerPos == cat3Pos){
+            maze.set(x,'X');
+            mazeView.set(x,'X');
+            MazeGame.gameLost = true;
+        }
         //Check if the player got a cheese or was caught by a cat
     }
 

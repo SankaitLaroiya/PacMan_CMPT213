@@ -108,6 +108,8 @@ public class MazeGame {
             clearMaze(myMaze);
             printMaze(myMaze.getMazeView());
             printToScr("GAME OVER; please try again.");
+        } else {
+
         }
     }
     private static void clearMaze(Maze myMaze){

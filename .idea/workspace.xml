@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a0326688-fb60-479c-b5e2-a009c0250a67" name="Default" comment="" />
+    <list default="true" id="a0326688-fb60-479c-b5e2-a009c0250a67" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ChaseTheCheese/ca/cmpt213/CatAndMouse/Logic/MazeActorController.class" afterPath="$PROJECT_DIR$/out/production/ChaseTheCheese/ca/cmpt213/CatAndMouse/Logic/MazeActorController.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ChaseTheCheese/ca/cmpt213/CatAndMouse/UI/MazeGame.class" afterPath="$PROJECT_DIR$/out/production/ChaseTheCheese/ca/cmpt213/CatAndMouse/UI/MazeGame.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ca/cmpt213/CatAndMouse/Logic/MazeActorController.java" afterPath="$PROJECT_DIR$/src/ca/cmpt213/CatAndMouse/Logic/MazeActorController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ca/cmpt213/CatAndMouse/UI/MazeGame.java" afterPath="$PROJECT_DIR$/src/ca/cmpt213/CatAndMouse/UI/MazeGame.java" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -22,7 +28,7 @@
       <file leaf-file-name="OODEXPLAINED.txt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/docs/OODEXPLAINED.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="494">
+            <state relative-caret-position="442">
               <caret line="26" column="14" lean-forward="false" selection-start-line="26" selection-start-column="14" selection-end-line="26" selection-end-column="14" />
               <folding />
             </state>
@@ -39,19 +45,67 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Maze.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Maze.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ca/cmpt213/CatAndMouse/Logic/Maze.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="266">
-              <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+            <state relative-caret-position="518">
+              <caret line="128" column="0" lean-forward="true" selection-start-line="128" selection-start-column="0" selection-end-line="128" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#Maze#0;class#Maze#0" expanded="false" />
-                <element signature="docComment;method#constructMaze#0;class#Maze#0" expanded="false" />
-                <element signature="method#constructMaze#0;class#Maze#0" expanded="false" />
-                <element signature="method#revealFog#0;class#Maze#0" expanded="false" />
+                <element signature="e#1853#1854#0" expanded="true" />
+                <element signature="e#1880#1881#0" expanded="true" />
+                <element signature="e#1929#1930#0" expanded="true" />
+                <element signature="e#1960#1961#0" expanded="true" />
+                <element signature="e#2016#2017#0" expanded="true" />
+                <element signature="e#2056#2057#0" expanded="true" />
+                <element signature="e#2121#2122#0" expanded="true" />
+                <element signature="e#2159#2160#0" expanded="true" />
+                <element signature="e#2221#2222#0" expanded="true" />
+                <element signature="e#2260#2261#0" expanded="true" />
                 <element signature="method#applyKruskalAlgo#0;class#Maze#0" expanded="false" />
                 <element signature="e#2836#2845#0" expanded="true" />
+                <element signature="e#3508#3509#0" expanded="true" />
+                <element signature="e#3549#3550#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MazeActorController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ca/cmpt213/CatAndMouse/Logic/MazeActorController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="138" column="34" lean-forward="true" selection-start-line="138" selection-start-column="34" selection-end-line="138" selection-end-column="34" />
+              <folding>
+                <element signature="docComment;class#MazeActorController#0" expanded="false" />
+                <element signature="docComment;method#checkActorsMobility#0;class#MazeActorController#0" expanded="false" />
+                <element signature="method#moveCats#0;class#MazeActorController#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MazeGame.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/ca/cmpt213/CatAndMouse/UI/MazeGame.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="212">
+              <caret line="101" column="52" lean-forward="false" selection-start-line="101" selection-start-column="52" selection-end-line="101" selection-end-column="52" />
+              <folding>
+                <element signature="docComment;class#MazeGame#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MazeUI.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ca/cmpt213/CatAndMouse/UI/MazeUI.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+              <folding>
+                <element signature="method#printMaze#0;class#MazeUI#0" expanded="false" />
+                <element signature="method#showGameMenu#0;class#MazeUI#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -69,7 +123,16 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>print</find>
+      <find>playerpos =</find>
     </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="Jimmy" />
+      </map>
+    </option>
   </component>
   <component name="GradleLocalSettings">
     <option name="externalProjectsViewState">
@@ -92,17 +155,18 @@
         <option value="$PROJECT_DIR$/src/ca/cmpt213/CatAndMouse/Logic/MazeGame.java" />
         <option value="$PROJECT_DIR$/src/ca/cmpt213/CatAndMouse/UI/MazeUI.java" />
         <option value="$PROJECT_DIR$/src/ca/cmpt213/CatAndMouse/Logic/Maze.java" />
-        <option value="$PROJECT_DIR$/src/ca/cmpt213/CatAndMouse/UI/MazeGame.java" />
-        <option value="$PROJECT_DIR$/src/ca/cmpt213/CatAndMouse/Logic/MazeActorController.java" />
         <option value="$PROJECT_DIR$/docs/USECASE.txt" />
         <option value="$PROJECT_DIR$/docs/OODEXPLAINED.txt" />
+        <option value="$PROJECT_DIR$/src/ca/cmpt213/CatAndMouse/Logic/MazeActorController.java" />
+        <option value="$PROJECT_DIR$/src/ca/cmpt213/CatAndMouse/UI/MazeGame.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="y" value="23" />
-    <option name="width" value="1680" />
-    <option name="height" value="1023" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1382" />
+    <option name="height" value="784" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -141,21 +205,21 @@
         <subPane>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="ChaseTheCheese" />
+              <option name="myItemId" value="CMPT213-ChaseTheCheese" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="ChaseTheCheese" />
+              <option name="myItemId" value="CMPT213-ChaseTheCheese" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="ChaseTheCheese" />
+              <option name="myItemId" value="CMPT213-ChaseTheCheese" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="ChaseTheCheese" />
+              <option name="myItemId" value="CMPT213-ChaseTheCheese" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -173,11 +237,11 @@
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="ChaseTheCheese" />
+              <option name="myItemId" value="CMPT213-ChaseTheCheese" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="ChaseTheCheese" />
+              <option name="myItemId" value="CMPT213-ChaseTheCheese" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -193,20 +257,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ChaseTheCheese" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ChaseTheCheese" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="docs" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
       <pane id="PackagesPane" />
@@ -219,6 +269,13 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RunManager" selected="Application.Maze">
+    <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
+      <module name="" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
+      <option name="PROGRAM_PARAMETERS" />
+      <predefined_log_file id="idea.log" enabled="true" />
+      <method />
+    </configuration>
     <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android App">
       <module name="" />
       <option name="DEPLOY" value="true" />
@@ -434,9 +491,6 @@
     <list size="1">
       <item index="0" class="java.lang.String" itemvalue="Application.Maze" />
     </list>
-    <configuration name="&lt;template&gt;" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" default="true" selected="false">
-      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
-    </configuration>
   </component>
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
@@ -452,24 +506,25 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1680" height="1023" extended-state="0" />
+    <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32975295" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32975295" sideWeight="0.502442" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3254565" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.58605343" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32975295" sideWeight="0.497558" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15689866" sideWeight="0.49358973" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1566618" sideWeight="0.49358973" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -480,7 +535,6 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32975295" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
@@ -530,7 +584,6 @@
           <caret line="25" column="38" lean-forward="false" selection-start-line="25" selection-start-column="38" selection-end-line="25" selection-end-column="38" />
           <folding>
             <element signature="docComment;class#MazeActorController#0" expanded="false" />
-            <element signature="method#movePlayer#0;class#MazeActorController#0" expanded="false" />
             <element signature="docComment;method#checkActorsMobility#0;class#MazeActorController#0" expanded="false" />
             <element signature="method#moveCats#0;class#MazeActorController#0" expanded="false" />
           </folding>
@@ -544,11 +597,20 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#Maze#0;class#Maze#0" expanded="false" />
-            <element signature="docComment;method#constructMaze#0;class#Maze#0" expanded="false" />
-            <element signature="method#constructMaze#0;class#Maze#0" expanded="false" />
-            <element signature="method#revealFog#0;class#Maze#0" expanded="false" />
+            <element signature="e#1853#1854#0" expanded="true" />
+            <element signature="e#1880#1881#0" expanded="true" />
+            <element signature="e#1929#1930#0" expanded="true" />
+            <element signature="e#1960#1961#0" expanded="true" />
+            <element signature="e#2016#2017#0" expanded="true" />
+            <element signature="e#2056#2057#0" expanded="true" />
+            <element signature="e#2121#2122#0" expanded="true" />
+            <element signature="e#2159#2160#0" expanded="true" />
+            <element signature="e#2221#2222#0" expanded="true" />
+            <element signature="e#2260#2261#0" expanded="true" />
             <element signature="method#applyKruskalAlgo#0;class#Maze#0" expanded="false" />
             <element signature="e#2836#2845#0" expanded="true" />
+            <element signature="e#3508#3509#0" expanded="true" />
+            <element signature="e#3549#3550#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -569,7 +631,6 @@
           <caret line="88" column="30" lean-forward="false" selection-start-line="88" selection-start-column="30" selection-end-line="88" selection-end-column="30" />
           <folding>
             <element signature="docComment;class#MazeActorController#0" expanded="false" />
-            <element signature="method#movePlayer#0;class#MazeActorController#0" expanded="false" />
             <element signature="docComment;method#checkActorsMobility#0;class#MazeActorController#0" expanded="false" />
             <element signature="method#moveCats#0;class#MazeActorController#0" expanded="false" />
           </folding>
@@ -591,11 +652,20 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#Maze#0;class#Maze#0" expanded="false" />
-            <element signature="docComment;method#constructMaze#0;class#Maze#0" expanded="false" />
-            <element signature="method#constructMaze#0;class#Maze#0" expanded="false" />
-            <element signature="method#revealFog#0;class#Maze#0" expanded="false" />
+            <element signature="e#1853#1854#0" expanded="true" />
+            <element signature="e#1880#1881#0" expanded="true" />
+            <element signature="e#1929#1930#0" expanded="true" />
+            <element signature="e#1960#1961#0" expanded="true" />
+            <element signature="e#2016#2017#0" expanded="true" />
+            <element signature="e#2056#2057#0" expanded="true" />
+            <element signature="e#2121#2122#0" expanded="true" />
+            <element signature="e#2159#2160#0" expanded="true" />
+            <element signature="e#2221#2222#0" expanded="true" />
+            <element signature="e#2260#2261#0" expanded="true" />
             <element signature="method#applyKruskalAlgo#0;class#Maze#0" expanded="false" />
             <element signature="e#2836#2845#0" expanded="true" />
+            <element signature="e#3508#3509#0" expanded="true" />
+            <element signature="e#3549#3550#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -616,7 +686,6 @@
           <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
           <folding>
             <element signature="docComment;class#MazeActorController#0" expanded="false" />
-            <element signature="method#movePlayer#0;class#MazeActorController#0" expanded="false" />
             <element signature="docComment;method#checkActorsMobility#0;class#MazeActorController#0" expanded="false" />
             <element signature="method#moveCats#0;class#MazeActorController#0" expanded="false" />
           </folding>
@@ -637,11 +706,20 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#Maze#0;class#Maze#0" expanded="false" />
-            <element signature="docComment;method#constructMaze#0;class#Maze#0" expanded="false" />
-            <element signature="method#constructMaze#0;class#Maze#0" expanded="false" />
-            <element signature="method#revealFog#0;class#Maze#0" expanded="false" />
+            <element signature="e#1853#1854#0" expanded="true" />
+            <element signature="e#1880#1881#0" expanded="true" />
+            <element signature="e#1929#1930#0" expanded="true" />
+            <element signature="e#1960#1961#0" expanded="true" />
+            <element signature="e#2016#2017#0" expanded="true" />
+            <element signature="e#2056#2057#0" expanded="true" />
+            <element signature="e#2121#2122#0" expanded="true" />
+            <element signature="e#2159#2160#0" expanded="true" />
+            <element signature="e#2221#2222#0" expanded="true" />
+            <element signature="e#2260#2261#0" expanded="true" />
             <element signature="method#applyKruskalAlgo#0;class#Maze#0" expanded="false" />
             <element signature="e#2836#2845#0" expanded="true" />
+            <element signature="e#3508#3509#0" expanded="true" />
+            <element signature="e#3549#3550#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -662,7 +740,6 @@
           <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
           <folding>
             <element signature="docComment;class#MazeActorController#0" expanded="false" />
-            <element signature="method#movePlayer#0;class#MazeActorController#0" expanded="false" />
             <element signature="docComment;method#checkActorsMobility#0;class#MazeActorController#0" expanded="false" />
             <element signature="method#moveCats#0;class#MazeActorController#0" expanded="false" />
           </folding>
@@ -676,11 +753,20 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#Maze#0;class#Maze#0" expanded="false" />
-            <element signature="docComment;method#constructMaze#0;class#Maze#0" expanded="false" />
-            <element signature="method#constructMaze#0;class#Maze#0" expanded="false" />
-            <element signature="method#revealFog#0;class#Maze#0" expanded="false" />
+            <element signature="e#1853#1854#0" expanded="true" />
+            <element signature="e#1880#1881#0" expanded="true" />
+            <element signature="e#1929#1930#0" expanded="true" />
+            <element signature="e#1960#1961#0" expanded="true" />
+            <element signature="e#2016#2017#0" expanded="true" />
+            <element signature="e#2056#2057#0" expanded="true" />
+            <element signature="e#2121#2122#0" expanded="true" />
+            <element signature="e#2159#2160#0" expanded="true" />
+            <element signature="e#2221#2222#0" expanded="true" />
+            <element signature="e#2260#2261#0" expanded="true" />
             <element signature="method#applyKruskalAlgo#0;class#Maze#0" expanded="false" />
             <element signature="e#2836#2845#0" expanded="true" />
+            <element signature="e#3508#3509#0" expanded="true" />
+            <element signature="e#3549#3550#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -701,7 +787,6 @@
           <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
           <folding>
             <element signature="docComment;class#MazeActorController#0" expanded="false" />
-            <element signature="method#movePlayer#0;class#MazeActorController#0" expanded="false" />
             <element signature="docComment;method#checkActorsMobility#0;class#MazeActorController#0" expanded="false" />
             <element signature="method#moveCats#0;class#MazeActorController#0" expanded="false" />
           </folding>
@@ -722,11 +807,20 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#Maze#0;class#Maze#0" expanded="false" />
-            <element signature="docComment;method#constructMaze#0;class#Maze#0" expanded="false" />
-            <element signature="method#constructMaze#0;class#Maze#0" expanded="false" />
-            <element signature="method#revealFog#0;class#Maze#0" expanded="false" />
+            <element signature="e#1853#1854#0" expanded="true" />
+            <element signature="e#1880#1881#0" expanded="true" />
+            <element signature="e#1929#1930#0" expanded="true" />
+            <element signature="e#1960#1961#0" expanded="true" />
+            <element signature="e#2016#2017#0" expanded="true" />
+            <element signature="e#2056#2057#0" expanded="true" />
+            <element signature="e#2121#2122#0" expanded="true" />
+            <element signature="e#2159#2160#0" expanded="true" />
+            <element signature="e#2221#2222#0" expanded="true" />
+            <element signature="e#2260#2261#0" expanded="true" />
             <element signature="method#applyKruskalAlgo#0;class#Maze#0" expanded="false" />
             <element signature="e#2836#2845#0" expanded="true" />
+            <element signature="e#3508#3509#0" expanded="true" />
+            <element signature="e#3549#3550#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -748,11 +842,20 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#Maze#0;class#Maze#0" expanded="false" />
-            <element signature="docComment;method#constructMaze#0;class#Maze#0" expanded="false" />
-            <element signature="method#constructMaze#0;class#Maze#0" expanded="false" />
-            <element signature="method#revealFog#0;class#Maze#0" expanded="false" />
+            <element signature="e#1853#1854#0" expanded="true" />
+            <element signature="e#1880#1881#0" expanded="true" />
+            <element signature="e#1929#1930#0" expanded="true" />
+            <element signature="e#1960#1961#0" expanded="true" />
+            <element signature="e#2016#2017#0" expanded="true" />
+            <element signature="e#2056#2057#0" expanded="true" />
+            <element signature="e#2121#2122#0" expanded="true" />
+            <element signature="e#2159#2160#0" expanded="true" />
+            <element signature="e#2221#2222#0" expanded="true" />
+            <element signature="e#2260#2261#0" expanded="true" />
             <element signature="method#applyKruskalAlgo#0;class#Maze#0" expanded="false" />
             <element signature="e#2836#2845#0" expanded="true" />
+            <element signature="e#3508#3509#0" expanded="true" />
+            <element signature="e#3549#3550#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -764,11 +867,20 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#Maze#0;class#Maze#0" expanded="false" />
-            <element signature="docComment;method#constructMaze#0;class#Maze#0" expanded="false" />
-            <element signature="method#constructMaze#0;class#Maze#0" expanded="false" />
-            <element signature="method#revealFog#0;class#Maze#0" expanded="false" />
+            <element signature="e#1853#1854#0" expanded="true" />
+            <element signature="e#1880#1881#0" expanded="true" />
+            <element signature="e#1929#1930#0" expanded="true" />
+            <element signature="e#1960#1961#0" expanded="true" />
+            <element signature="e#2016#2017#0" expanded="true" />
+            <element signature="e#2056#2057#0" expanded="true" />
+            <element signature="e#2121#2122#0" expanded="true" />
+            <element signature="e#2159#2160#0" expanded="true" />
+            <element signature="e#2221#2222#0" expanded="true" />
+            <element signature="e#2260#2261#0" expanded="true" />
             <element signature="method#applyKruskalAlgo#0;class#Maze#0" expanded="false" />
             <element signature="e#2836#2845#0" expanded="true" />
+            <element signature="e#3508#3509#0" expanded="true" />
+            <element signature="e#3549#3550#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -797,11 +909,20 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#Maze#0;class#Maze#0" expanded="false" />
-            <element signature="docComment;method#constructMaze#0;class#Maze#0" expanded="false" />
-            <element signature="method#constructMaze#0;class#Maze#0" expanded="false" />
-            <element signature="method#revealFog#0;class#Maze#0" expanded="false" />
+            <element signature="e#1853#1854#0" expanded="true" />
+            <element signature="e#1880#1881#0" expanded="true" />
+            <element signature="e#1929#1930#0" expanded="true" />
+            <element signature="e#1960#1961#0" expanded="true" />
+            <element signature="e#2016#2017#0" expanded="true" />
+            <element signature="e#2056#2057#0" expanded="true" />
+            <element signature="e#2121#2122#0" expanded="true" />
+            <element signature="e#2159#2160#0" expanded="true" />
+            <element signature="e#2221#2222#0" expanded="true" />
+            <element signature="e#2260#2261#0" expanded="true" />
             <element signature="method#applyKruskalAlgo#0;class#Maze#0" expanded="false" />
             <element signature="e#2836#2845#0" expanded="true" />
+            <element signature="e#3508#3509#0" expanded="true" />
+            <element signature="e#3549#3550#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -813,11 +934,20 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#Maze#0;class#Maze#0" expanded="false" />
-            <element signature="docComment;method#constructMaze#0;class#Maze#0" expanded="false" />
-            <element signature="method#constructMaze#0;class#Maze#0" expanded="false" />
-            <element signature="method#revealFog#0;class#Maze#0" expanded="false" />
+            <element signature="e#1853#1854#0" expanded="true" />
+            <element signature="e#1880#1881#0" expanded="true" />
+            <element signature="e#1929#1930#0" expanded="true" />
+            <element signature="e#1960#1961#0" expanded="true" />
+            <element signature="e#2016#2017#0" expanded="true" />
+            <element signature="e#2056#2057#0" expanded="true" />
+            <element signature="e#2121#2122#0" expanded="true" />
+            <element signature="e#2159#2160#0" expanded="true" />
+            <element signature="e#2221#2222#0" expanded="true" />
+            <element signature="e#2260#2261#0" expanded="true" />
             <element signature="method#applyKruskalAlgo#0;class#Maze#0" expanded="false" />
             <element signature="e#2836#2845#0" expanded="true" />
+            <element signature="e#3508#3509#0" expanded="true" />
+            <element signature="e#3549#3550#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -846,11 +976,20 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#Maze#0;class#Maze#0" expanded="false" />
-            <element signature="docComment;method#constructMaze#0;class#Maze#0" expanded="false" />
-            <element signature="method#constructMaze#0;class#Maze#0" expanded="false" />
-            <element signature="method#revealFog#0;class#Maze#0" expanded="false" />
+            <element signature="e#1853#1854#0" expanded="true" />
+            <element signature="e#1880#1881#0" expanded="true" />
+            <element signature="e#1929#1930#0" expanded="true" />
+            <element signature="e#1960#1961#0" expanded="true" />
+            <element signature="e#2016#2017#0" expanded="true" />
+            <element signature="e#2056#2057#0" expanded="true" />
+            <element signature="e#2121#2122#0" expanded="true" />
+            <element signature="e#2159#2160#0" expanded="true" />
+            <element signature="e#2221#2222#0" expanded="true" />
+            <element signature="e#2260#2261#0" expanded="true" />
             <element signature="method#applyKruskalAlgo#0;class#Maze#0" expanded="false" />
             <element signature="e#2836#2845#0" expanded="true" />
+            <element signature="e#3508#3509#0" expanded="true" />
+            <element signature="e#3549#3550#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -879,11 +1018,20 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#Maze#0;class#Maze#0" expanded="false" />
-            <element signature="docComment;method#constructMaze#0;class#Maze#0" expanded="false" />
-            <element signature="method#constructMaze#0;class#Maze#0" expanded="false" />
-            <element signature="method#revealFog#0;class#Maze#0" expanded="false" />
+            <element signature="e#1853#1854#0" expanded="true" />
+            <element signature="e#1880#1881#0" expanded="true" />
+            <element signature="e#1929#1930#0" expanded="true" />
+            <element signature="e#1960#1961#0" expanded="true" />
+            <element signature="e#2016#2017#0" expanded="true" />
+            <element signature="e#2056#2057#0" expanded="true" />
+            <element signature="e#2121#2122#0" expanded="true" />
+            <element signature="e#2159#2160#0" expanded="true" />
+            <element signature="e#2221#2222#0" expanded="true" />
+            <element signature="e#2260#2261#0" expanded="true" />
             <element signature="method#applyKruskalAlgo#0;class#Maze#0" expanded="false" />
             <element signature="e#2836#2845#0" expanded="true" />
+            <element signature="e#3508#3509#0" expanded="true" />
+            <element signature="e#3549#3550#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -912,11 +1060,20 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#Maze#0;class#Maze#0" expanded="false" />
-            <element signature="docComment;method#constructMaze#0;class#Maze#0" expanded="false" />
-            <element signature="method#constructMaze#0;class#Maze#0" expanded="false" />
-            <element signature="method#revealFog#0;class#Maze#0" expanded="false" />
+            <element signature="e#1853#1854#0" expanded="true" />
+            <element signature="e#1880#1881#0" expanded="true" />
+            <element signature="e#1929#1930#0" expanded="true" />
+            <element signature="e#1960#1961#0" expanded="true" />
+            <element signature="e#2016#2017#0" expanded="true" />
+            <element signature="e#2056#2057#0" expanded="true" />
+            <element signature="e#2121#2122#0" expanded="true" />
+            <element signature="e#2159#2160#0" expanded="true" />
+            <element signature="e#2221#2222#0" expanded="true" />
+            <element signature="e#2260#2261#0" expanded="true" />
             <element signature="method#applyKruskalAlgo#0;class#Maze#0" expanded="false" />
             <element signature="e#2836#2845#0" expanded="true" />
+            <element signature="e#3508#3509#0" expanded="true" />
+            <element signature="e#3549#3550#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -928,83 +1085,34 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#Maze#0;class#Maze#0" expanded="false" />
-            <element signature="docComment;method#constructMaze#0;class#Maze#0" expanded="false" />
-            <element signature="method#constructMaze#0;class#Maze#0" expanded="false" />
-            <element signature="method#revealFog#0;class#Maze#0" expanded="false" />
+            <element signature="e#1853#1854#0" expanded="true" />
+            <element signature="e#1880#1881#0" expanded="true" />
+            <element signature="e#1929#1930#0" expanded="true" />
+            <element signature="e#1960#1961#0" expanded="true" />
+            <element signature="e#2016#2017#0" expanded="true" />
+            <element signature="e#2056#2057#0" expanded="true" />
+            <element signature="e#2121#2122#0" expanded="true" />
+            <element signature="e#2159#2160#0" expanded="true" />
+            <element signature="e#2221#2222#0" expanded="true" />
+            <element signature="e#2260#2261#0" expanded="true" />
             <element signature="method#applyKruskalAlgo#0;class#Maze#0" expanded="false" />
             <element signature="e#2836#2845#0" expanded="true" />
+            <element signature="e#3508#3509#0" expanded="true" />
+            <element signature="e#3549#3550#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_111.jdk/Contents/Home/src.zip!/java/lang/Class.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="1785" column="0" lean-forward="false" selection-start-line="1785" selection-start-column="0" selection-end-line="1785" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_111.jdk/Contents/Home/src.zip!/java/util/Random.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="387" column="21" lean-forward="false" selection-start-line="387" selection-start-column="21" selection-end-line="387" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_111.jdk/Contents/Home/src.zip!/java/util/ArrayList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-119">
-          <caret line="491" column="0" lean-forward="false" selection-start-line="491" selection-start-column="0" selection-end-line="491" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_111.jdk/Contents/Home/src.zip!/java/util/Collections.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="557" column="24" lean-forward="false" selection-start-line="557" selection-start-column="24" selection-end-line="557" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_111.jdk/Contents/Home/src.zip!/java/lang/Class.java" />
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_111.jdk/Contents/Home/src.zip!/java/util/Random.java" />
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_111.jdk/Contents/Home/src.zip!/java/util/ArrayList.java" />
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_111.jdk/Contents/Home/src.zip!/java/util/Collections.java" />
     <entry file="file://$PROJECT_DIR$/src/ca/cmpt213/CatAndMouse/Logic/CatController.java" />
     <entry file="file://$PROJECT_DIR$/docs/USECASE" />
     <entry file="file://$PROJECT_DIR$/docs/OODEXPLAINED" />
-    <entry file="file://$PROJECT_DIR$/src/ca/cmpt213/CatAndMouse/UI/MazeUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="19" column="46" lean-forward="false" selection-start-line="19" selection-start-column="46" selection-end-line="19" selection-end-column="46" />
-          <folding>
-            <element signature="method#printMaze#0;class#MazeUI#0" expanded="false" />
-            <element signature="method#showGameMenu#0;class#MazeUI#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ca/cmpt213/CatAndMouse/Logic/MazeActorController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="456">
-          <caret line="30" column="40" lean-forward="true" selection-start-line="30" selection-start-column="40" selection-end-line="30" selection-end-column="40" />
-          <folding>
-            <element signature="docComment;class#MazeActorController#0" expanded="false" />
-            <element signature="method#movePlayer#0;class#MazeActorController#0" expanded="false" />
-            <element signature="docComment;method#checkActorsMobility#0;class#MazeActorController#0" expanded="false" />
-            <element signature="method#moveCats#0;class#MazeActorController#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ca/cmpt213/CatAndMouse/UI/MazeGame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="33" column="27" lean-forward="true" selection-start-line="33" selection-start-column="27" selection-end-line="33" selection-end-column="27" />
-          <folding>
-            <element signature="docComment;class#MazeGame#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/docs/OODEXPLAINED.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="494">
+        <state relative-caret-position="442">
           <caret line="26" column="14" lean-forward="false" selection-start-line="26" selection-start-column="14" selection-end-line="26" selection-end-column="14" />
           <folding />
         </state>
@@ -1018,18 +1126,60 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/ca/cmpt213/CatAndMouse/UI/MazeUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <folding>
+            <element signature="method#printMaze#0;class#MazeUI#0" expanded="false" />
+            <element signature="method#showGameMenu#0;class#MazeUI#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ca/cmpt213/CatAndMouse/Logic/MazeActorController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="138" column="34" lean-forward="true" selection-start-line="138" selection-start-column="34" selection-end-line="138" selection-end-column="34" />
+          <folding>
+            <element signature="docComment;class#MazeActorController#0" expanded="false" />
+            <element signature="docComment;method#checkActorsMobility#0;class#MazeActorController#0" expanded="false" />
+            <element signature="method#moveCats#0;class#MazeActorController#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/ca/cmpt213/CatAndMouse/Logic/Maze.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+        <state relative-caret-position="518">
+          <caret line="128" column="0" lean-forward="true" selection-start-line="128" selection-start-column="0" selection-end-line="128" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#Maze#0;class#Maze#0" expanded="false" />
-            <element signature="docComment;method#constructMaze#0;class#Maze#0" expanded="false" />
-            <element signature="method#constructMaze#0;class#Maze#0" expanded="false" />
-            <element signature="method#revealFog#0;class#Maze#0" expanded="false" />
+            <element signature="e#1853#1854#0" expanded="true" />
+            <element signature="e#1880#1881#0" expanded="true" />
+            <element signature="e#1929#1930#0" expanded="true" />
+            <element signature="e#1960#1961#0" expanded="true" />
+            <element signature="e#2016#2017#0" expanded="true" />
+            <element signature="e#2056#2057#0" expanded="true" />
+            <element signature="e#2121#2122#0" expanded="true" />
+            <element signature="e#2159#2160#0" expanded="true" />
+            <element signature="e#2221#2222#0" expanded="true" />
+            <element signature="e#2260#2261#0" expanded="true" />
             <element signature="method#applyKruskalAlgo#0;class#Maze#0" expanded="false" />
             <element signature="e#2836#2845#0" expanded="true" />
+            <element signature="e#3508#3509#0" expanded="true" />
+            <element signature="e#3549#3550#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ca/cmpt213/CatAndMouse/UI/MazeGame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="212">
+          <caret line="101" column="52" lean-forward="false" selection-start-line="101" selection-start-column="52" selection-end-line="101" selection-end-column="52" />
+          <folding>
+            <element signature="docComment;class#MazeGame#0" expanded="false" />
           </folding>
         </state>
       </provider>
