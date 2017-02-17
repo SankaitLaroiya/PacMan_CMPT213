@@ -5,7 +5,6 @@ import ca.cmpt213.CatAndMouse.UI.MazeUI;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Random;
 
 /**
  * Class to move the cats every click in the game and handle player moves.
@@ -16,7 +15,6 @@ public class MazeActorController {
     private static int cat3Pos;
     public static int playerPos;
     private static int cheesePos;
-    private static int[] DIRECTION ={1,-1,20,-20};
 
     public static void initGameActors(Maze gameMaze) {
 
@@ -51,7 +49,6 @@ public class MazeActorController {
         ArrayList<Character> mazeView = gameMaze.getMazeView();
         ArrayList<Integer> mazeEdges = gameMaze.getMazeWallPositions();
 
-        moveCats(gameMaze);
         //Check if the selected move is valid
         //TODO: MOVE PRINTTOSCR FUNCTION OUT OF THIS CLASS
         if(mazeEdges.contains(x)) {
@@ -68,15 +65,6 @@ public class MazeActorController {
         playerPos = x;
 
         //TODO: ADD IF PLAYER IS MOVING TOWARDS A CAT OR CHEESE.
-        if(playerPos == cheesePos){
-            placeCheese(gameMaze);
-            MazeGame.numCheeseCollected++;
-        }
-        if(playerPos == cat1Pos || playerPos == cat2Pos || playerPos == cat3Pos){
-            maze.set(x,'X');
-            mazeView.set(x,'X');
-            MazeGame.gameLost = true;
-        }
         //Check if the player got a cheese or was caught by a cat
     }
 
@@ -170,5 +158,6 @@ public class MazeActorController {
 
     // TODO: METHOD STUB
     static void moveCats(Maze gameMaze) {
+
     }
 }
