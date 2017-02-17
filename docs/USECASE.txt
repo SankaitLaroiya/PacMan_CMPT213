@@ -1,0 +1,58 @@
+                                            *** USE CASE ***
+
+- Game-play (A user's perspective):
+    1. The game UI prompts user for an input.
+    2. User can use WASD keys to move in different directions OR '?' for help and press return to confirm the input.
+    3. The maze will be updated under the hood and displayed to the user.
+    4. Every time the player moves it would cause Cats to move pseudo-randomly.
+    5. When the user collects a piece of cheese ($), another one appears at a random location until the player has
+       collected 5 pieces to win the game.
+
+    * Variation #1:
+        1.1 In step 2, any input other than described, results in an error which would trigger the input recovery.
+        1.2 Input recovery would ask user for another input without changing the game state.
+        1.3 Continue with step 3.
+
+    * Variation #2:
+        2.1 In step 2, if a user enters a valid input, but the player(@) cannot move to the position like a wall(#),
+            the user will be notified.
+        2.2 Prompt for input normally. Continue from step 2.
+
+    * Variation #3:
+        3.1 If in step 2 the user enters multiple inputs (e.g: WXYZZ), the game would only check the first character
+            for validity, apply it if valid and discard the rest.
+        3.2 If valid, the input is passed on for the corresponding action in the game.
+
+    * Variation #4:
+        4.1 In step 4, if the user is in the same block as a Cat, the game would be over.
+        4.2 The user is notified "GAME OVER".
+        4.3 Game exits.
+
+                                            ******************
+
+                                            *** EXTRA INFO ***
+
+- Title of the game: Chase the Cheese.
+
+- Objective from a user's perspective:
+    - The player, a mouse (represented by @) has to capture the cheese ($) 5 times to win the game.
+    - The opponents, 3 cats (represented by !) move around the maze pseudo-randomly.
+    - The cats and cheese are visible to the player all the time.
+    - The maze is made up of a perimeter wall, and some random walls (#) within the perimeter.
+    - The player has to avoid the cats and get the cheese 5 times to win.
+    - Un-explored areas (represented by .) are revealed as the player moves around in the maze.
+      The visibility is up to 1 block in all directions.
+
+- Displaying instructions:
+    - The user is displayed a brief objective and the instructions ensuring correct formatting.
+
+- Win Condition:
+    - The player's objective would be to get cheese($) five times.
+    - When the player gets a cheese, the cheese would then appear at some other random location on the maze.
+    - Player wins if he/she collects cheese five times without running into a cat.
+
+- Cheat codes and help:
+    - As a cheat code, user can use M to reveal the entire map (including walls).
+    - A '?' would display instructions to the user.
+
+                                            ******************

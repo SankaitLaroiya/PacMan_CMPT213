@@ -1,0 +1,38 @@
+# The below paragraph explains the basic functionality of each class. Readers may skip it if they have
+# some idea about each class's responsibility.
+
+The game will be implemented using four basic Java classes. Each class would have its own domain of operation.
+All classes and their responsibilities are as follows:
+
+1. Maze Class: The Maze class would be responsible for creating, applying algorithm and managing the game's maze
+   (which is implemented as an ArrayList). It would also manage the maze which the user views since the underlying
+   maze is separate from what the user sees. Therefore, Maze class keeps the view and the base layer in sync with each
+   other.
+
+2. MazeActorController Class: In the game, maze actors are: Player, cats and cheese. This class would have the functionality
+   to respond to the user input (provided by MazeGame class discussed later). It also handles all the logic to move the cats
+   pseudo-randomly around the maze. Placing cheese at the beginning and when every time the player collects one is also one
+   of this class's responsibility.
+
+3. MazeUI Class: All the displaying functionality goes into this class. Displaying maze, printing strings to the console and
+   displaying the game menu and help. All other classes delegate any printing tasks to this class since logic and the UI is
+   to be separated.
+
+4. MazeGame Class: The MazeGame class is responsible for the main game loop and delegating tasks to other classes. It would call
+   methods provided by other classes to accomplish the task at hand (i.e. it acts as an intermediary among other classes).
+
+                                   *** Object-Oriented Design Explanation Using Examples ***
+
+a) Handling user input: The MazeGame class takes in the input in its game loop. Without handling the input itself, it would
+   delegate this task to the MazeActorController class which would then see if the input is valid or not. If valid, the move is
+   applied and the views are updated. Also, since it would know how many cheese pieces were collected, it would increment the count
+   as well (if needed of course). However, if the player steps on a Cat, the method would return a 'game over' signal which would be
+   handled by the MazeGame class further. We separated this task into two classes so we can focus strictly on what we should do with
+   the user input.
+
+b) Maze Management: The classes are designed strictly to handle one domain of operation. The MazeGame class is only needed for
+   co-ordination. The actual maze building and management is done by the Maze class. For example: Creating the maze itself is done
+   by the Maze class independently. The MazeGame class only holds an instance of Maze class but is not responsible for updating the
+   maze itself. This would let each class focus on their main responsibilities.
+
+                                   *********************************************************
