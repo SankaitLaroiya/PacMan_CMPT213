@@ -5,6 +5,7 @@ import ca.cmpt213.CatAndMouse.UI.MazeUI;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Dictionary;
 import java.util.List;
 
 /**
@@ -14,6 +15,8 @@ public class MazeActorController {
     private static Integer cat1Pos;
     private static Integer cat2Pos;
     private static Integer cat3Pos;
+    private static Dictionary<String, Integer> cats;
+
     public static Integer playerPos;
     private static Integer cheesePos;
 
@@ -163,12 +166,10 @@ public class MazeActorController {
     static void moveCats(Maze gameMaze) {
         ArrayList<Character> maze = gameMaze.getMaze();
         ArrayList<Character> mazeView = gameMaze.getMazeView();
+        ArrayList<Integer> mazeWalls = gameMaze.getMazeWallPositions();
 
-        ArrayList<Integer> cats = new ArrayList<Integer>(3);
-
-        cats.add(cat1Pos);
-        cats.add(cat2Pos);
-        cats.add(cat3Pos);
+        int catNum = 0;
+        Integer stepTowards = 0;
 
         ArrayList directions = new ArrayList<Integer>(4);
         directions.add(-20);
@@ -176,18 +177,96 @@ public class MazeActorController {
         directions.add(-1);
         directions.add(1);
 
-        Collections.shuffle(directions);
+        while(catNum < 3) {
+            stepTowards = 0;
+            switch(catNum) {
+                case 0:
+                    Collections.shuffle(directions);
 
-        Integer stepTowards = (Integer)directions.get(0);
-        stepTowards += cat1Pos;
+                    stepTowards = (Integer)directions.get(0);
+                    stepTowards += cat1Pos;
 
-        gameMaze.modifyMazePos(cat1Pos, '.');
-        gameMaze.modifyMazePos(stepTowards, '!');
+                    while(true) {
+                        stepTowards += cat1Pos;
 
-        gameMaze.modifyMazeViewAtPos(cat1Pos, '.');
-        gameMaze.modifyMazeViewAtPos(stepTowards, '!');
+                        if(mazeWalls.contains(stepTowards) || stepTowards > maze.size() || stepTowards < 0) {
+                            Collections.shuffle(directions);
+                            stepTowards = (Integer)directions.get(0);
+                        }
+                        else {
+                            break;
+                        }
+                    }
 
-        cat1Pos = stepTowards;
+                    gameMaze.modifyMazePos(cat1Pos, '.');
+                    gameMaze.modifyMazePos(stepTowards, '!');
+
+                    gameMaze.modifyMazeViewAtPos(cat1Pos, '.');
+                    gameMaze.modifyMazeViewAtPos(stepTowards, '!');
+
+                    cat1Pos = stepTowards;
+                    catNum++;
+
+                case 1:
+                    Collections.shuffle(directions);
+
+                    stepTowards = (Integer)directions.get(0);
+                    stepTowards += cat2Pos;
+
+                    while(true) {
+                        stepTowards += cat2Pos;
+                        if(mazeWalls.contains(stepTowards) || stepTowards > maze.size()  || stepTowards < 0
+                                || maze.get(stepTowards) == '!'d) {
+                            Collections.shuffle(directions);
+                            stepTowards = (Integer)directions.get(0);
+                        }
+                        else {
+                            break;
+                        }
+                    }
+
+                    gameMaze.modifyMazePos(cat2Pos, '.');
+                    gameMaze.modifyMazePos(stepTowards, '!');
+
+                    gameMaze.modifyMazeViewAtPos(cat2Pos, '.');
+                    gameMaze.modifyMazeViewAtPos(stepTowards, '!');
+
+                    cat2Pos = stepTowards;
+
+                    catNum++;
+
+                case 2:
+                    Collections.shuffle(directions);
+
+                    stepTowards = (Integer)directions.get(0);
+                    stepTowards += cat3Pos;
+
+                    while(true) {
+                        stepTowards += cat3Pos;
+                        if(mazeWalls.contains(stepTowards) || stepTowards > maze.size()  || stepTowards < 0) {
+                            Collections.shuffle(directions);
+                            stepTowards = (Integer)directions.get(0);
+                        }
+                        else {
+                            break;
+                        }
+                    }
+
+                    gameMaze.modifyMazePos(cat3Pos, '.');
+                    gameMaze.modifyMazePos(stepTowards, '!');
+
+                    gameMaze.modifyMazeViewAtPos(cat3Pos, '.');
+                    gameMaze.modifyMazeViewAtPos(stepTowards, '!');
+
+                    cat3Pos = stepTowards;
+                    catNum++;
+            }
+
+        }
+
+
+
+
 
     }
 }
