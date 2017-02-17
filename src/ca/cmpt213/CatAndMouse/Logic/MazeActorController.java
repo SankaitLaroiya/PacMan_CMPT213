@@ -5,16 +5,17 @@ import ca.cmpt213.CatAndMouse.UI.MazeUI;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 /**
  * Class to move the cats every click in the game and handle player moves.
  */
 public class MazeActorController {
-    private static int cat1Pos;
-    private static int cat2Pos;
-    private static int cat3Pos;
-    public static int playerPos;
-    private static int cheesePos;
+    private static Integer cat1Pos;
+    private static Integer cat2Pos;
+    private static Integer cat3Pos;
+    public static Integer playerPos;
+    private static Integer cheesePos;
 
     public static void initGameActors(Maze gameMaze) {
 
@@ -40,67 +41,6 @@ public class MazeActorController {
         placeCheese(gameMaze);
 
         checkActorsMobility(gameMaze);
-    }
-
-    // REMEMBER: x = new move + player position
-    public static void movePlayer(int x, Maze gameMaze) {
-
-        ArrayList<Character> maze = gameMaze.getMaze();
-        ArrayList<Character> mazeView = gameMaze.getMazeView();
-        ArrayList<Integer> mazeEdges = gameMaze.getMazeWallPositions();
-
-        //Check if the selected move is valid
-        //TODO: MOVE PRINTTOSCR FUNCTION OUT OF THIS CLASS
-        if(mazeEdges.contains(x)) {
-            MazeUI.printToScr("Invalid Move: You cannot move through walls!\n");
-            return;
-        }
-
-        //If valid move the player
-        maze.set(playerPos, ' ');
-        mazeView.set(playerPos, ' ');
-        maze.set(x, '@');
-        mazeView.set(x, '@');
-
-        playerPos = x;
-
-        //TODO: ADD IF PLAYER IS MOVING TOWARDS A CAT OR CHEESE.
-        //Check if the player got a cheese or was caught by a cat
-    }
-
-    private static void placeCheese(Maze gameMaze) {
-        ArrayList<Integer> tempMazeEdge = new ArrayList<>(gameMaze.getMazeWallPositions());
-        ArrayList<Character> mazeView = gameMaze.getMazeView();
-
-        Collections.shuffle(tempMazeEdge);
-        Integer x = tempMazeEdge.get(0);
-
-        //TODO: REPLACE CONSTANTS WITH CHANGEABLE VARIABLES FOR ACTOR POSITIONS
-        //TODO: CHANGE TO SELECT CHEESE POSITION ARBITRARILY INSTEAD OF MAZE EDGES
-        while(true) {
-            //Ensures that the perimeter walls or the actor's locations
-            //are not replaced with cheese.
-            //Only the inside walls are considered.
-            if((x % 20 == 0 || x % 20 == 19)
-                    || (x >= 0 && x <= 19)
-                    || (x >= 279 && x <= 300) ||(x == playerPos)
-                    || (x == cat1Pos)
-                    || (x == cat2Pos)
-                    || (x == cat3Pos)) {
-                Collections.shuffle(tempMazeEdge);
-                x = tempMazeEdge.get(0);
-
-
-            }
-            else {
-                break;
-            }
-        }
-
-        gameMaze.modifyMazePos(x, '$');
-        gameMaze.getMazeWallPositions().remove(x);
-        mazeView.set(x, '$');
-        cheesePos = x;
     }
 
     /**
@@ -156,8 +96,98 @@ public class MazeActorController {
         }
     }
 
-    // TODO: METHOD STUB
+    // REMEMBER: x = new move + player position
+    public static void movePlayer(int x, Maze gameMaze) {
+
+        ArrayList<Character> maze = gameMaze.getMaze();
+        ArrayList<Character> mazeView = gameMaze.getMazeView();
+        ArrayList<Integer> mazeEdges = gameMaze.getMazeWallPositions();
+
+        //Check if the selected move is valid
+        //TODO: MOVE PRINTTOSCR FUNCTION OUT OF THIS CLASS
+        if(mazeEdges.contains(x)) {
+            MazeUI.printToScr("Invalid Move: You cannot move through walls!\n");
+            return;
+        }
+
+        //If valid move the player
+        maze.set(playerPos, ' ');
+        mazeView.set(playerPos, ' ');
+
+        maze.set(x, '@');
+        mazeView.set(x, '@');
+
+        playerPos = x;
+
+        //TODO: ADD IF PLAYER IS MOVING TOWARDS A CAT OR CHEESE.
+        //Check if the player got a cheese or was caught by a cat
+
+        moveCats(gameMaze);
+    }
+
+    private static void placeCheese(Maze gameMaze) {
+        ArrayList<Integer> tempMazeEdge = new ArrayList<>(gameMaze.getMazeWallPositions());
+        ArrayList<Character> mazeView = gameMaze.getMazeView();
+
+        Collections.shuffle(tempMazeEdge);
+        Integer x = tempMazeEdge.get(0);
+
+        while(true) {
+            //Ensures that the perimeter walls or the actor's locations
+            //are not replaced with cheese.
+            //Only the inside walls are considered.
+            if((x % 20 == 0 || x % 20 == 19)
+                    || (x >= 0 && x <= 19)
+                    || (x >= 279 && x <= 300) ||(x == playerPos)
+                    || (x == cat1Pos)
+                    || (x == cat2Pos)
+                    || (x == cat3Pos)) {
+                Collections.shuffle(tempMazeEdge);
+                x = tempMazeEdge.get(0);
+
+
+            }
+            else {
+                break;
+            }
+        }
+
+        gameMaze.modifyMazePos(x, '$');
+        gameMaze.getMazeWallPositions().remove(x);
+
+        mazeView.set(x, '$');
+
+        cheesePos = x;
+    }
+
     static void moveCats(Maze gameMaze) {
+        ArrayList<Character> maze = gameMaze.getMaze();
+        ArrayList<Character> mazeView = gameMaze.getMazeView();
+
+        ArrayList<Integer> cats = new ArrayList<Integer>(3);
+
+        cats.add(cat1Pos);
+        cats.add(cat2Pos);
+        cats.add(cat3Pos);
+
+        ArrayList directions = new ArrayList<Integer>(4);
+        directions.add(-20);
+        directions.add(20);
+        directions.add(-1);
+        directions.add(1);
+
+        Collections.shuffle(directions);
+
+        Integer stepTowards = (Integer)directions.get(0);
+        stepTowards += cat1Pos;
+
+        gameMaze.modifyMazePos(cat1Pos, '.');
+        gameMaze.modifyMazePos(stepTowards, '!');
+
+        gameMaze.modifyMazeViewAtPos(cat1Pos, '.');
+        gameMaze.modifyMazeViewAtPos(stepTowards, '!');
+
+        cat1Pos = stepTowards;
 
     }
 }

@@ -25,22 +25,6 @@ public class Maze {
         mazeWallPositions = new ArrayList<Integer>(120);
     }
 
-    public ArrayList<Character> getMaze() {
-        return maze;
-    }
-
-    public ArrayList<Character> getMazeView() {
-        return mazeView;
-    }
-
-    public ArrayList<Integer> getMazeWallPositions() {
-        return mazeWallPositions;
-    }
-
-    public void setMazeView(ArrayList<Character> newMazeView) {
-        mazeView = newMazeView;
-    }
-
     /**
      * Method to populate the maze with basic walls to make a grid.
      */
@@ -81,6 +65,22 @@ public class Maze {
         applyKruskalAlgo();
     }
 
+    public ArrayList<Character> getMaze() {
+        return maze;
+    }
+
+    public ArrayList<Character> getMazeView() {
+        return mazeView;
+    }
+
+    public ArrayList<Integer> getMazeWallPositions() {
+        return mazeWallPositions;
+    }
+
+    public void setMazeView(ArrayList<Character> newMazeView) {
+        mazeView = newMazeView;
+    }
+
     public void modifyMazePos(int pos, Character withChar) {
         maze.set(pos, withChar);
     }
@@ -119,6 +119,10 @@ public class Maze {
         for(Integer i : removeLater) {
             mazeWallPositions.remove(i);
         }
+    }
+
+    public void modifyMazeViewAtPos(int x, Character withChar) {
+        mazeView.set(x, withChar);
     }
 }
 
