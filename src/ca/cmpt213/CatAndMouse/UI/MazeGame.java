@@ -28,6 +28,10 @@ public class MazeGame {
     private static final Integer LEFT = -1;
     private static final Integer RIGHT = 1;
 
+
+    public static int numCheeseCollected = 0;
+    public static boolean gameLost = false;
+
     public static void main(String[] args) {
         Maze myMaze = new Maze();
 
@@ -37,15 +41,14 @@ public class MazeGame {
 
         MazeActorController.initGameActors(myMaze);
 
-        boolean gameLost = false;
-        int numCheeseCollected = 0;
         char input;
 
         Scanner inputStream = new Scanner(System.in);
 
-        while(!(gameLost || numCheeseCollected >= 5)) {
+        do{
 
             printMaze(myMaze.getMazeView());
+            printToScr("Cheese collected: " + numCheeseCollected + " of 5\n");
             printToScr("Enter your move [WASD?]: ");
 
             try {
@@ -79,11 +82,7 @@ public class MazeGame {
                     break;
 
                 case 'm':
-                    ArrayList<Character> altMaze = new ArrayList<>(myMaze.getMaze());
-                    Collections.replaceAll(altMaze,'.', ' ');
-                    Collections.replaceAll(myMaze.getMaze(),'.', ' ');
-
-                    myMaze.setMazeView(altMaze);
+                    clearMaze(myMaze);
                     break;
 
                 case '?':
@@ -98,6 +97,23 @@ public class MazeGame {
                     printToScr("Invalid input! Please try Again.\n");
                     input = ' ';
             }
+        } while (!(gameLost || numCheeseCollected >= 5));
+        if(numCheeseCollected >= 5){
+            printToScr("Congratulations. You've won!!");
+            clearMaze(myMaze);
+            printMaze(myMaze.getMazeView());
         }
+        else if(gameLost){
+            printToScr("I'm sorry, you've been eaten!");
+            clearMaze(myMaze);
+            printMaze(myMaze.getMazeView());
+            printToScr("GAME OVER; please try again.");
+        }
+    }
+    private static void clearMaze(Maze myMaze){
+        ArrayList<Character> altMaze = new ArrayList<>(myMaze.getMaze());
+        Collections.replaceAll(altMaze,'.', ' ');
+        Collections.replaceAll(myMaze.getMaze(),'.', ' ');
+        myMaze.setMazeView(altMaze);
     }
 }
