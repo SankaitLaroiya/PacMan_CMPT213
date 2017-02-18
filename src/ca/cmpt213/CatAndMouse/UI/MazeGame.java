@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
 
-import static ca.cmpt213.CatAndMouse.Logic.MazeActorController.movePlayer;
+import static ca.cmpt213.CatAndMouse.Logic.MazeActorController.moveActors;
 import static ca.cmpt213.CatAndMouse.Logic.MazeActorController.playerPos;
 import static ca.cmpt213.CatAndMouse.UI.MazeUI.printToScr;
 import static ca.cmpt213.CatAndMouse.UI.MazeUI.printMaze;
@@ -47,7 +47,6 @@ public class MazeGame {
 
         while (!(gameLost || numCheeseCollected >= 5)) {
 
-
             printMaze(myMaze.getMazeView());
 
             printToScr("Cheese collected: " + numCheeseCollected + " of 5\n");
@@ -64,22 +63,22 @@ public class MazeGame {
 
             switch (input) {
                 case 'w':
-                    movePlayer(UP + playerPos, myMaze);
+                    moveActors(UP + playerPos, myMaze);
                     myMaze.revealFog(playerPos);
                     break;
 
                 case 'a':
-                    movePlayer(LEFT + playerPos, myMaze);
+                    moveActors(LEFT + playerPos, myMaze);
                     myMaze.revealFog(playerPos);
                     break;
 
                 case 's':
-                    movePlayer(DOWN + playerPos, myMaze);
+                    moveActors(DOWN + playerPos, myMaze);
                     myMaze.revealFog(playerPos);
                     break;
 
                 case 'd':
-                    movePlayer(RIGHT + playerPos, myMaze);
+                    moveActors(RIGHT + playerPos, myMaze);
                     myMaze.revealFog(playerPos);
                     break;
 
@@ -99,10 +98,6 @@ public class MazeGame {
                     printToScr("Invalid input! Please try Again.\n");
                     input = ' ';
             }
-
-
-            MazeActorController.moveCats(myMaze);
-            MazeActorController.checkCondition(myMaze);
         }
 
         if(numCheeseCollected >= 5){

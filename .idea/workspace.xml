@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a0326688-fb60-479c-b5e2-a009c0250a67" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ca/cmpt213/CatAndMouse/Logic/MazeActorController.java" afterPath="$PROJECT_DIR$/src/ca/cmpt213/CatAndMouse/Logic/MazeActorController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ca/cmpt213/CatAndMouse/UI/MazeGame.java" afterPath="$PROJECT_DIR$/src/ca/cmpt213/CatAndMouse/UI/MazeGame.java" />
     </list>
@@ -26,36 +25,11 @@
       <file leaf-file-name="MazeActorController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ca/cmpt213/CatAndMouse/Logic/MazeActorController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="16" column="33" lean-forward="false" selection-start-line="16" selection-start-column="33" selection-end-line="16" selection-end-column="33" />
+            <state relative-caret-position="1520">
+              <caret line="86" column="8" lean-forward="false" selection-start-line="86" selection-start-column="8" selection-end-line="86" selection-end-column="8" />
               <folding>
                 <element signature="docComment;class#MazeActorController#0" expanded="false" />
                 <element signature="docComment;method#checkActorsMobility#0;class#MazeActorController#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MazeGame.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ca/cmpt213/CatAndMouse/UI/MazeGame.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1729">
-              <caret line="104" column="55" lean-forward="false" selection-start-line="104" selection-start-column="55" selection-end-line="104" selection-end-column="55" />
-              <folding>
-                <element signature="docComment;class#MazeGame#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MazeUI.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ca/cmpt213/CatAndMouse/UI/MazeUI.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
-              <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-              <folding>
-                <element signature="method#printMaze#0;class#MazeUI#0" expanded="false" />
-                <element signature="method#showGameMenu#0;class#MazeUI#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -908,17 +882,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ca/cmpt213/CatAndMouse/UI/MazeUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-          <folding>
-            <element signature="method#printMaze#0;class#MazeUI#0" expanded="false" />
-            <element signature="method#showGameMenu#0;class#MazeUI#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ca/cmpt213/CatAndMouse/Logic/Maze.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1254">
@@ -939,10 +902,21 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/ca/cmpt213/CatAndMouse/UI/MazeUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <folding>
+            <element signature="method#printMaze#0;class#MazeUI#0" expanded="false" />
+            <element signature="method#showGameMenu#0;class#MazeUI#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/ca/cmpt213/CatAndMouse/UI/MazeGame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1729">
-          <caret line="104" column="55" lean-forward="false" selection-start-line="104" selection-start-column="55" selection-end-line="104" selection-end-column="55" />
+        <state relative-caret-position="1634">
+          <caret line="99" column="13" lean-forward="false" selection-start-line="99" selection-start-column="13" selection-end-line="99" selection-end-column="13" />
           <folding>
             <element signature="docComment;class#MazeGame#0" expanded="false" />
           </folding>
@@ -951,8 +925,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ca/cmpt213/CatAndMouse/Logic/MazeActorController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="16" column="33" lean-forward="false" selection-start-line="16" selection-start-column="33" selection-end-line="16" selection-end-column="33" />
+        <state relative-caret-position="1520">
+          <caret line="86" column="8" lean-forward="false" selection-start-line="86" selection-start-column="8" selection-end-line="86" selection-end-column="8" />
           <folding>
             <element signature="docComment;class#MazeActorController#0" expanded="false" />
             <element signature="docComment;method#checkActorsMobility#0;class#MazeActorController#0" expanded="false" />
