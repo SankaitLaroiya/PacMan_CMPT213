@@ -10,10 +10,11 @@ import java.util.Collections;
  * Class to move the cats every click in the game and handle player moves.
  */
 public class MazeActorController {
+    public static int playerPos;
+
     private static int cat1Pos;
     private static int cat2Pos;
     private static int cat3Pos;
-    public static int playerPos;
     private static int cheesePos;
 
     private static char cat1PrevStep = '.';
@@ -44,67 +45,6 @@ public class MazeActorController {
         placeCheese(gameMaze);
 
         checkActorsMobility(gameMaze);
-    }
-
-    // REMEMBER: x = new move + player position
-    public static void moveActors(int x, Maze gameMaze) {
-
-        ArrayList<Character> maze = gameMaze.getMaze();
-        ArrayList<Character> mazeView = gameMaze.getMazeView();
-        ArrayList<Integer> mazeEdges = gameMaze.getMazeWallPositions();
-
-        //Check if the selected move is valid
-        //TODO: MOVE PRINTTOSCR FUNCTION OUT OF THIS CLASS
-        if (mazeEdges.contains(x)) {
-            MazeUI.printToScr("Invalid Move: You cannot move through walls!\n");
-            return;
-        }
-
-
-
-
-        maze.set(x, '@');
-        mazeView.set(x, '@');
-
-        //If valid move the player
-        maze.set(playerPos, ' ');
-        mazeView.set(playerPos, ' ');
-
-        playerPos = x;
-
-        checkCondition(gameMaze);
-    }
-
-    private static void placeCheese(Maze gameMaze) {
-        ArrayList<Integer> tempMazeEdge = new ArrayList<>(gameMaze.getMazeWallPositions());
-        ArrayList<Character> mazeView = gameMaze.getMazeView();
-
-        Collections.shuffle(tempMazeEdge);
-        Integer x = tempMazeEdge.get(0);
-
-        while (true) {
-            //Ensures that the perimeter walls or the actor's locations
-            //are not replaced with cheese.
-            //Only the inside walls are considered.
-            if ((x % 20 == 0 || x % 20 == 19)
-                    || (x >= 0 && x <= 19)
-                    || (x >= 279 && x <= 300) || (x == playerPos)
-                    || (x == cat1Pos)
-                    || (x == cat2Pos)
-                    || (x == cat3Pos)) {
-                Collections.shuffle(tempMazeEdge);
-                x = tempMazeEdge.get(0);
-
-
-            } else {
-                break;
-            }
-        }
-
-        gameMaze.modifyMazePos(x, '$');
-        gameMaze.getMazeWallPositions().remove(x);
-        mazeView.set(x, '$');
-        cheesePos = x;
     }
 
     /**
@@ -159,6 +99,28 @@ public class MazeActorController {
 
             placeCheese(gameMaze);
         }
+    }
+
+    // REMEMBER: x = new move + player position
+    public static void movePlayer(int x, Maze gameMaze) {
+        ArrayList<Character> maze = gameMaze.getMaze();
+        ArrayList<Character> mazeView = gameMaze.getMazeView();
+        ArrayList<Integer> mazeEdges = gameMaze.getMazeWallPositions();
+
+        //Check if the selected move is valid
+        if (mazeEdges.contains(x)) {
+            MazeUI.printToScr("Invalid Move: You cannot move through walls!\n");
+            return;
+        }
+
+        maze.set(x, '@');
+        mazeView.set(x, '@');
+        maze.set(playerPos, ' ');
+        mazeView.set(playerPos, ' ');
+
+        playerPos = x;
+
+        checkCondition(gameMaze);
     }
 
     public static void moveCats(Maze gameMaze) {
@@ -291,5 +253,37 @@ public class MazeActorController {
             placeCheese(gameMaze);
             MazeGame.numCheeseCollected++;
         }
+    }
+
+    private static void placeCheese(Maze gameMaze) {
+        ArrayList<Integer> tempMazeEdge = new ArrayList<>(gameMaze.getMazeWallPositions());
+        ArrayList<Character> mazeView = gameMaze.getMazeView();
+
+        Collections.shuffle(tempMazeEdge);
+        Integer x = tempMazeEdge.get(0);
+
+        while (true) {
+            //Ensures that the perimeter walls or the actor's locations
+            //are not replaced with cheese.
+            //Only the inside walls are considered.
+            if ((x % 20 == 0 || x % 20 == 19)
+                    || (x >= 0 && x <= 19)
+                    || (x >= 279 && x <= 300) || (x == playerPos)
+                    || (x == cat1Pos)
+                    || (x == cat2Pos)
+                    || (x == cat3Pos)) {
+                Collections.shuffle(tempMazeEdge);
+                x = tempMazeEdge.get(0);
+
+
+            } else {
+                break;
+            }
+        }
+
+        gameMaze.modifyMazePos(x, '$');
+        gameMaze.getMazeWallPositions().remove(x);
+        mazeView.set(x, '$');
+        cheesePos = x;
     }
 }

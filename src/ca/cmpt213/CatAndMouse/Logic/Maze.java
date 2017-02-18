@@ -85,6 +85,10 @@ public class Maze {
         maze.set(pos, withChar);
     }
 
+    public void modifyMazeViewAtPos(int x, Character withChar) {
+        mazeView.set(x, withChar);
+    }
+
     public void revealFog(int playerPos) {
         mazeView.set(playerPos + 1, maze.get(playerPos + 1));
         mazeView.set(playerPos - 1, maze.get(playerPos - 1));
@@ -119,10 +123,6 @@ public class Maze {
         for(Integer i : removeLater) {
             mazeWallPositions.remove(i);
         }
-    }
-
-    public void modifyMazeViewAtPos(int x, Character withChar) {
-        mazeView.set(x, withChar);
     }
 }
 
