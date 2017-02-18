@@ -157,9 +157,106 @@ public class MazeActorController {
         }
     }
     
-    static void moveCats(Maze gameMaze) {
-        
-    }
+    public static void moveCats(Maze gameMaze) {
+        int catNum = 0;
+        Integer moveToPos = 0;
+
+        ArrayList maze = gameMaze.getMaze();
+        ArrayList mazeView = gameMaze.getMazeView();
+        ArrayList mazeEdges = gameMaze.getMazeWallPositions();
+
+        ArrayList directions = new ArrayList<Integer>(4);
+
+        directions.add(-20);
+        directions.add(20);
+        directions.add(1);
+        directions.add(-1);
+
+        while(catNum < 3) {
+            switch (catNum) {
+                case 0:
+                    Collections.shuffle(directions);
+                    moveToPos = (Integer)directions.get(0);
+
+                    while(true) {
+
+                        moveToPos += cat1Pos;
+
+                        if(mazeEdges.contains(moveToPos) || moveToPos > maze.size()
+                                || moveToPos < 0) {
+                            Collections.shuffle(directions);
+                            moveToPos = (Integer)directions.get(0);
+
+                        } else {
+                            break;
+                        }
+                    }
+
+                    gameMaze.modifyMazePos(cat1Pos, ' ');
+                    gameMaze.modifyMazePos(moveToPos, '!');
+
+                    gameMaze.modifyMazeViewAtPos(cat1Pos, ' ');
+                    gameMaze.modifyMazeViewAtPos(moveToPos, '!');
+
+                    cat1Pos = moveToPos;
+                    break;
+
+                case 1:
+                    Collections.shuffle(directions);
+                    moveToPos = (Integer)directions.get(0);
+
+                    while(true) {
+
+                        moveToPos += cat2Pos;
+                        if(mazeEdges.contains(moveToPos) || moveToPos > maze.size()
+                                || moveToPos < 0) {
+                            Collections.shuffle(directions);
+                            moveToPos = (Integer)directions.get(0);
+
+                        } else {
+                            break;
+                        }
+                    }
+
+                    gameMaze.modifyMazePos(cat2Pos, ' ');
+                    gameMaze.modifyMazePos(moveToPos, '!');
+
+                    gameMaze.modifyMazeViewAtPos(cat2Pos, ' ');
+                    gameMaze.modifyMazeViewAtPos(moveToPos, '!');
+
+                    cat2Pos = moveToPos;
+
+                    break;
+
+                case 2:
+                    Collections.shuffle(directions);
+                    moveToPos = (Integer)directions.get(0);
+
+                    while(true) {
+                        moveToPos += cat3Pos;
+                        if(mazeEdges.contains(moveToPos) || moveToPos > maze.size()
+                                || moveToPos < 0) {
+                            Collections.shuffle(directions);
+                            moveToPos = (Integer)directions.get(0);
+
+                        } else {
+                            break;
+                        }
+                    }
+
+                    gameMaze.modifyMazePos(cat3Pos, ' ');
+                    gameMaze.modifyMazePos(moveToPos, '!');
+
+                    gameMaze.modifyMazeViewAtPos(cat3Pos, ' ');
+                    gameMaze.modifyMazeViewAtPos(moveToPos, '!');
+
+                    cat3Pos = moveToPos;
+                    break;
+            }
+
+            catNum++;
+
+        }
 
     private static void checkCondition(Maze gameMaze){
 

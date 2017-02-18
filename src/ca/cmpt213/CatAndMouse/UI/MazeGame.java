@@ -46,8 +46,10 @@ public class MazeGame {
         Scanner inputStream = new Scanner(System.in);
 
         do{
+            MazeActorController.moveCats(myMaze);
 
             printMaze(myMaze.getMazeView());
+
             printToScr("Cheese collected: " + numCheeseCollected + " of 5\n");
             printToScr("Enter your move [WASD?]: ");
 
