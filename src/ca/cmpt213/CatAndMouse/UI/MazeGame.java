@@ -102,14 +102,16 @@ public class MazeGame {
         } while (!(gameLost || numCheeseCollected >= 5));
 
         if(numCheeseCollected >= 5){
-            printToScr("Congratulations. You've won!!");
+            printToScr("Congratulations. You've won!!\n");
             clearMaze(myMaze);
             printMaze(myMaze.getMazeView());
+            printToScr("Cheese collected: " + numCheeseCollected + " of 5\n");
         }
         else if(gameLost){
             printToScr("I'm sorry, you've been eaten!");
             clearMaze(myMaze);
             printMaze(myMaze.getMazeView());
+            printToScr("Cheese collected: " + numCheeseCollected + " of 5\n");
             printToScr("GAME OVER; please try again.");
         } else {
 
