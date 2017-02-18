@@ -64,15 +64,8 @@ public class MazeActorController {
 
         playerPos = x;
 
-        if(playerPos == cheesePos){
-            placeCheese(gameMaze);
-            MazeGame.numCheeseCollected++;
-        }
-        if(playerPos == cat1Pos || playerPos == cat2Pos || playerPos == cat3Pos){
-            maze.set(x,'X');
-            mazeView.set(x,'X');
-            MazeGame.gameLost = true;
-        }
+        checkCondition(gameMaze);
+
         //Check if the player got a cheese or was caught by a cat
     }
 
@@ -166,5 +159,20 @@ public class MazeActorController {
     
     static void moveCats(Maze gameMaze) {
         
+    }
+
+    private static void checkCondition(Maze gameMaze){
+
+        ArrayList<Character> maze = gameMaze.getMaze();
+        ArrayList<Character> mazeView = gameMaze.getMazeView();
+
+        if(playerPos == cat1Pos || playerPos == cat2Pos || playerPos == cat3Pos){
+            maze.set(playerPos,'X');
+            mazeView.set(playerPos,'X');
+            MazeGame.gameLost = true;
+        } else if(playerPos == cheesePos){
+            placeCheese(gameMaze);
+            MazeGame.numCheeseCollected++;
+        }
     }
 }

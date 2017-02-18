@@ -4,7 +4,6 @@
     <list default="true" id="a0326688-fb60-479c-b5e2-a009c0250a67" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ca/cmpt213/CatAndMouse/Logic/MazeActorController.java" afterPath="$PROJECT_DIR$/src/ca/cmpt213/CatAndMouse/Logic/MazeActorController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ca/cmpt213/CatAndMouse/UI/MazeGame.java" afterPath="$PROJECT_DIR$/src/ca/cmpt213/CatAndMouse/UI/MazeGame.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -72,8 +71,8 @@
       <file leaf-file-name="MazeActorController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ca/cmpt213/CatAndMouse/Logic/MazeActorController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="152">
-              <caret line="170" column="34" lean-forward="false" selection-start-line="170" selection-start-column="34" selection-end-line="170" selection-end-column="34" />
+            <state relative-caret-position="101">
+              <caret line="167" column="0" lean-forward="true" selection-start-line="167" selection-start-column="0" selection-end-line="167" selection-end-column="0" />
               <folding>
                 <element signature="docComment;class#MazeActorController#0" expanded="false" />
                 <element signature="docComment;method#checkActorsMobility#0;class#MazeActorController#0" expanded="false" />
@@ -500,7 +499,14 @@
       <option name="project" value="LOCAL" />
       <updated>1487374860020</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Check Condition">
+      <created>1487377413819</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1487377413819</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -543,7 +549,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="lold" />
     <MESSAGE value="Cheese / Cat checks" />
-    <option name="LAST_COMMIT_MESSAGE" value="Cheese / Cat checks" />
+    <MESSAGE value="Check Condition" />
+    <option name="LAST_COMMIT_MESSAGE" value="Check Condition" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1158,8 +1165,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ca/cmpt213/CatAndMouse/Logic/MazeActorController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="170" column="34" lean-forward="false" selection-start-line="170" selection-start-column="34" selection-end-line="170" selection-end-column="34" />
+        <state relative-caret-position="101">
+          <caret line="167" column="0" lean-forward="true" selection-start-line="167" selection-start-column="0" selection-end-line="167" selection-end-column="0" />
           <folding>
             <element signature="docComment;class#MazeActorController#0" expanded="false" />
             <element signature="docComment;method#checkActorsMobility#0;class#MazeActorController#0" expanded="false" />
