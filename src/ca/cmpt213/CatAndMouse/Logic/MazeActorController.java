@@ -163,9 +163,8 @@ public class MazeActorController {
             placeCheese(gameMaze);
         }
     }
-
-    // TODO: METHOD STUB
+    
     static void moveCats(Maze gameMaze) {
-
+        
     }
 }

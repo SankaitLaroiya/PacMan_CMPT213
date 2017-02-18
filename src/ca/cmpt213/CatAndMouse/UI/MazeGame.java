@@ -98,6 +98,7 @@ public class MazeGame {
                     input = ' ';
             }
         } while (!(gameLost || numCheeseCollected >= 5));
+
         if(numCheeseCollected >= 5){
             printToScr("Congratulations. You've won!!\n");
             clearMaze(myMaze);
