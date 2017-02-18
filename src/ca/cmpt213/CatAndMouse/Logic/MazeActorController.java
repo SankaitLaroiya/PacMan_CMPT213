@@ -60,22 +60,19 @@ public class MazeActorController {
             return;
         }
 
-        moveCats(gameMaze);
 
+
+
+        maze.set(x, '@');
+        mazeView.set(x, '@');
 
         //If valid move the player
         maze.set(playerPos, ' ');
         mazeView.set(playerPos, ' ');
-        maze.set(x, '@');
-        mazeView.set(x, '@');
 
         playerPos = x;
 
         checkCondition(gameMaze);
-
-
-
-        //Check if the player got a cheese or was caught by a cat
     }
 
     private static void placeCheese(Maze gameMaze) {
@@ -84,7 +81,7 @@ public class MazeActorController {
 
         Collections.shuffle(tempMazeEdge);
         Integer x = tempMazeEdge.get(0);
-        
+
         while (true) {
             //Ensures that the perimeter walls or the actor's locations
             //are not replaced with cheese.
@@ -201,6 +198,10 @@ public class MazeActorController {
 
                     cat1PrevStep = (Character)mazeView.get(moveToPos);
 
+                    if(cat1PrevStep == '@') {
+                        cat1PrevStep = ' ';
+                    }
+
                     gameMaze.modifyMazePos(cat1Pos, cat1PrevStep);
                     gameMaze.modifyMazePos(moveToPos, '!');
 
@@ -229,6 +230,10 @@ public class MazeActorController {
 
                     cat2PrevStep = (Character)mazeView.get(moveToPos);
 
+                    if(cat2PrevStep == '@') {
+                        cat2PrevStep = ' ';
+                    }
+
                     gameMaze.modifyMazePos(cat2Pos, cat2PrevStep);
                     gameMaze.modifyMazePos(moveToPos, '!');
 
@@ -256,6 +261,9 @@ public class MazeActorController {
                     }
 
                     cat3PrevStep = (Character)mazeView.get(moveToPos);
+                    if(cat3PrevStep == '@') {
+                        cat3PrevStep = ' ';
+                    }
 
                     gameMaze.modifyMazePos(cat3Pos, cat3PrevStep);
                     gameMaze.modifyMazePos(moveToPos, '!');
@@ -272,9 +280,6 @@ public class MazeActorController {
     }
 
     public static void checkCondition(Maze gameMaze) {
-
-        ArrayList<Character> maze = gameMaze.getMaze();
-        ArrayList<Character> mazeView = gameMaze.getMazeView();
 
         if (playerPos == cat1Pos || playerPos == cat2Pos || playerPos == cat3Pos) {
             gameMaze.modifyMazePos(playerPos, 'X');

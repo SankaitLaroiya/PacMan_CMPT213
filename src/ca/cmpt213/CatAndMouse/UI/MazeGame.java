@@ -33,21 +33,29 @@ public class MazeGame {
     public static boolean gameLost = false;
 
     public static void main(String[] args) {
-        Maze myMaze = new Maze();
+        Maze gameMaze = new Maze();
 
-        myMaze.constructMaze();
+        gameMaze.constructMaze();
 
         showGameMenu(true);
 
-        MazeActorController.initGameActors(myMaze);
+        MazeActorController.initGameActors(gameMaze);
 
         char input;
 
         Scanner inputStream = new Scanner(System.in);
 
-        while (!(gameLost || numCheeseCollected >= 5)) {
+        gameMaze.revealFog(playerPos);
 
-            printMaze(myMaze.getMazeView());
+        while (!(gameLost || numCheeseCollected >= 5)) {
+            MazeActorController.moveCats(gameMaze);
+            MazeActorController.checkCondition(gameMaze);
+
+            if(gameLost) {
+                break;
+            }
+
+            printMaze(gameMaze.getMazeView());
 
             printToScr("Cheese collected: " + numCheeseCollected + " of 5\n");
             printToScr("Enter your move [WASD?]: ");
@@ -63,27 +71,27 @@ public class MazeGame {
 
             switch (input) {
                 case 'w':
-                    moveActors(UP + playerPos, myMaze);
-                    myMaze.revealFog(playerPos);
+                    moveActors(UP + playerPos, gameMaze);
+                    gameMaze.revealFog(playerPos);
                     break;
 
                 case 'a':
-                    moveActors(LEFT + playerPos, myMaze);
-                    myMaze.revealFog(playerPos);
+                    moveActors(LEFT + playerPos, gameMaze);
+                    gameMaze.revealFog(playerPos);
                     break;
 
                 case 's':
-                    moveActors(DOWN + playerPos, myMaze);
-                    myMaze.revealFog(playerPos);
+                    moveActors(DOWN + playerPos, gameMaze);
+                    gameMaze.revealFog(playerPos);
                     break;
 
                 case 'd':
-                    moveActors(RIGHT + playerPos, myMaze);
-                    myMaze.revealFog(playerPos);
+                    moveActors(RIGHT + playerPos, gameMaze);
+                    gameMaze.revealFog(playerPos);
                     break;
 
                 case 'm':
-                    clearMaze(myMaze);
+                    clearMaze(gameMaze);
                     break;
 
                 case '?':
@@ -101,25 +109,27 @@ public class MazeGame {
         }
 
         if(numCheeseCollected >= 5){
-            printToScr("Congratulations. You've won!!\n");
-            clearMaze(myMaze);
-            printMaze(myMaze.getMazeView());
-            printToScr("Cheese collected: " + numCheeseCollected + " of 5\n");
-        }
-        else if(gameLost){
-            printToScr("I'm sorry, you've been eaten!");
-            clearMaze(myMaze);
-            printMaze(myMaze.getMazeView());
-            printToScr("Cheese collected: " + numCheeseCollected + " of 5\n");
-            printToScr("GAME OVER; please try again.");
-        } else {
+            printToScr("\nCheese collected: " + numCheeseCollected + " of 5\n");
+            printToScr("Congratulations. You've won!!");
 
+            clearMaze(gameMaze);
+            printMaze(gameMaze.getMazeView());
+        }
+
+        if(gameLost){
+            printToScr("\nSorry, cat got your ton...um your mouse!\n");
+            printToScr("Cheese collected: " + numCheeseCollected + " of 5\n");
+
+
+            clearMaze(gameMaze);
+            printMaze(gameMaze.getMazeView());
+            printToScr("GAME OVER; please try again.");
         }
     }
     private static void clearMaze(Maze myMaze){
-        ArrayList<Character> altMaze = new ArrayList<>(myMaze.getMaze());
-        Collections.replaceAll(altMaze,'.', ' ');
+        //ArrayList<Character> altMaze = new ArrayList<>(myMaze.getMaze());
+        //Collections.replaceAll(altMaze,'.', ' ');
         Collections.replaceAll(myMaze.getMaze(),'.', ' ');
-        myMaze.setMazeView(altMaze);
+        myMaze.setMazeView(myMaze.getMaze());
     }
 }
