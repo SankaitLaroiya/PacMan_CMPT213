@@ -45,8 +45,8 @@ public class MazeGame {
 
         Scanner inputStream = new Scanner(System.in);
 
-        do{
-            MazeActorController.moveCats(myMaze);
+        while (!(gameLost || numCheeseCollected >= 5)) {
+
 
             printMaze(myMaze.getMazeView());
 
@@ -99,7 +99,11 @@ public class MazeGame {
                     printToScr("Invalid input! Please try Again.\n");
                     input = ' ';
             }
-        } while (!(gameLost || numCheeseCollected >= 5));
+
+
+            MazeActorController.moveCats(myMaze);
+            MazeActorController.checkCondition(myMaze);
+        }
 
         if(numCheeseCollected >= 5){
             printToScr("Congratulations. You've won!!\n");

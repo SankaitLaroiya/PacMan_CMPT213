@@ -51,7 +51,7 @@ public class MazeActorController {
 
         //Check if the selected move is valid
         //TODO: MOVE PRINTTOSCR FUNCTION OUT OF THIS CLASS
-        if(mazeEdges.contains(x)) {
+        if (mazeEdges.contains(x)) {
             MazeUI.printToScr("Invalid Move: You cannot move through walls!\n");
             return;
         }
@@ -78,13 +78,13 @@ public class MazeActorController {
 
         //TODO: REPLACE CONSTANTS WITH CHANGEABLE VARIABLES FOR ACTOR POSITIONS
         //TODO: CHANGE TO SELECT CHEESE POSITION ARBITRARILY INSTEAD OF MAZE EDGES
-        while(true) {
+        while (true) {
             //Ensures that the perimeter walls or the actor's locations
             //are not replaced with cheese.
             //Only the inside walls are considered.
-            if((x % 20 == 0 || x % 20 == 19)
+            if ((x % 20 == 0 || x % 20 == 19)
                     || (x >= 0 && x <= 19)
-                    || (x >= 279 && x <= 300) ||(x == playerPos)
+                    || (x >= 279 && x <= 300) || (x == playerPos)
                     || (x == cat1Pos)
                     || (x == cat2Pos)
                     || (x == cat3Pos)) {
@@ -92,8 +92,7 @@ public class MazeActorController {
                 x = tempMazeEdge.get(0);
 
 
-            }
-            else {
+            } else {
                 break;
             }
         }
@@ -106,6 +105,7 @@ public class MazeActorController {
 
     /**
      * Method to check that all the actors have at least one direction to move into after initial placing.
+     *
      * @param gameMaze The maze the actors are on.
      */
     private static void checkActorsMobility(Maze gameMaze) {
@@ -115,28 +115,28 @@ public class MazeActorController {
         //Ensures that each actor has at least one direction to move towards initially.
         //The if statements use the array which maintains the positions of the internal walls of the maze
         //to make sure that there is atleast one way out for each actor.
-        if((mazeEdges.contains(playerPos + 1))
+        if ((mazeEdges.contains(playerPos + 1))
                 && (mazeEdges.contains(playerPos + 20))) {
 
             gameMaze.modifyMazePos(playerPos + 20, '.');
             mazeEdges.remove(new Integer(playerPos + 20));
         }
 
-        if((mazeEdges.contains(cat1Pos - 1))
+        if ((mazeEdges.contains(cat1Pos - 1))
                 && (mazeEdges.contains(cat1Pos + 20))) {
 
             gameMaze.modifyMazePos(cat1Pos - 1, '.');
             mazeEdges.remove(new Integer(cat1Pos - 1));
         }
 
-        if((mazeEdges.contains(cat2Pos + 1))
+        if ((mazeEdges.contains(cat2Pos + 1))
                 && (mazeEdges.contains(cat2Pos - 20))) {
 
             gameMaze.modifyMazePos(cat2Pos - 20, '.');
             mazeEdges.remove(new Integer(cat2Pos - 20));
         }
 
-        if((mazeEdges.contains(cat3Pos - 1))
+        if ((mazeEdges.contains(cat3Pos - 1))
                 && (mazeEdges.contains(cat3Pos - 20))) {
 
             gameMaze.modifyMazePos(cat3Pos - 20, '.');
@@ -144,7 +144,7 @@ public class MazeActorController {
         }
 
         //Places cheese until it is accessible from at east one direction.
-        while((mazeEdges.contains(cheesePos + 20))
+        while ((mazeEdges.contains(cheesePos + 20))
                 && (mazeEdges.contains((cheesePos - 20)))
                 && (mazeEdges.contains(cheesePos - 1))
                 && (mazeEdges.contains(cheesePos + 1))) {
@@ -156,7 +156,7 @@ public class MazeActorController {
             placeCheese(gameMaze);
         }
     }
-    
+
     public static void moveCats(Maze gameMaze) {
         int catNum = 0;
         Integer moveToPos = 0;
@@ -172,20 +172,20 @@ public class MazeActorController {
         directions.add(1);
         directions.add(-1);
 
-        while(catNum < 3) {
+        while (catNum < 3) {
             switch (catNum) {
                 case 0:
                     Collections.shuffle(directions);
-                    moveToPos = (Integer)directions.get(0);
+                    moveToPos = (Integer) directions.get(0);
 
-                    while(true) {
+                    while (true) {
 
                         moveToPos += cat1Pos;
 
-                        if(mazeEdges.contains(moveToPos) || moveToPos > maze.size()
+                        if (mazeEdges.contains(moveToPos) || moveToPos > maze.size()
                                 || moveToPos < 0) {
                             Collections.shuffle(directions);
-                            moveToPos = (Integer)directions.get(0);
+                            moveToPos = (Integer) directions.get(0);
 
                         } else {
                             break;
@@ -203,15 +203,15 @@ public class MazeActorController {
 
                 case 1:
                     Collections.shuffle(directions);
-                    moveToPos = (Integer)directions.get(0);
+                    moveToPos = (Integer) directions.get(0);
 
-                    while(true) {
+                    while (true) {
 
                         moveToPos += cat2Pos;
-                        if(mazeEdges.contains(moveToPos) || moveToPos > maze.size()
+                        if (mazeEdges.contains(moveToPos) || moveToPos > maze.size()
                                 || moveToPos < 0) {
                             Collections.shuffle(directions);
-                            moveToPos = (Integer)directions.get(0);
+                            moveToPos = (Integer) directions.get(0);
 
                         } else {
                             break;
@@ -230,14 +230,14 @@ public class MazeActorController {
 
                 case 2:
                     Collections.shuffle(directions);
-                    moveToPos = (Integer)directions.get(0);
+                    moveToPos = (Integer) directions.get(0);
 
-                    while(true) {
+                    while (true) {
                         moveToPos += cat3Pos;
-                        if(mazeEdges.contains(moveToPos) || moveToPos > maze.size()
+                        if (mazeEdges.contains(moveToPos) || moveToPos > maze.size()
                                 || moveToPos < 0) {
                             Collections.shuffle(directions);
-                            moveToPos = (Integer)directions.get(0);
+                            moveToPos = (Integer) directions.get(0);
 
                         } else {
                             break;
@@ -255,19 +255,19 @@ public class MazeActorController {
             }
 
             catNum++;
-
         }
+    }
 
-    private static void checkCondition(Maze gameMaze){
+    public static void checkCondition(Maze gameMaze) {
 
         ArrayList<Character> maze = gameMaze.getMaze();
         ArrayList<Character> mazeView = gameMaze.getMazeView();
 
-        if(playerPos == cat1Pos || playerPos == cat2Pos || playerPos == cat3Pos){
-            maze.set(playerPos,'X');
-            mazeView.set(playerPos,'X');
+        if (playerPos == cat1Pos || playerPos == cat2Pos || playerPos == cat3Pos) {
+            maze.set(playerPos, 'X');
+            mazeView.set(playerPos, 'X');
             MazeGame.gameLost = true;
-        } else if(playerPos == cheesePos){
+        } else if (playerPos == cheesePos) {
             placeCheese(gameMaze);
             MazeGame.numCheeseCollected++;
         }
