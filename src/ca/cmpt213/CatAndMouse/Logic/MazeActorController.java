@@ -198,7 +198,7 @@ public class MazeActorController {
 
                     cat1PrevStep = (Character)mazeView.get(moveToPos);
 
-                    if(cat1PrevStep == '@') {
+                    if(cat1PrevStep == '!'|| cat1PrevStep == '@') {
                         cat1PrevStep = ' ';
                     }
 
@@ -230,7 +230,7 @@ public class MazeActorController {
 
                     cat2PrevStep = (Character)mazeView.get(moveToPos);
 
-                    if(cat2PrevStep == '@') {
+                    if(cat2PrevStep == '!' || cat2PrevStep == '@') {
                         cat2PrevStep = ' ';
                     }
 
@@ -261,7 +261,8 @@ public class MazeActorController {
                     }
 
                     cat3PrevStep = (Character)mazeView.get(moveToPos);
-                    if(cat3PrevStep == '@') {
+
+                    if(cat3PrevStep == '!'|| cat3PrevStep == '@') {
                         cat3PrevStep = ' ';
                     }
 
