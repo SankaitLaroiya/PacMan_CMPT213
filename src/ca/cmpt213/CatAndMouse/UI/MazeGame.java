@@ -16,12 +16,6 @@ import static ca.cmpt213.CatAndMouse.UI.MazeUI.showGameMenu;
  * Cat and Mouse game's main activity class
  */
 public class MazeGame {
-
-    public static final Integer PLAYER_POS = 21;
-    public static final Integer CAT1_POS = 38;
-    public static final Integer CAT2_POS = 261;
-    public static final Integer CAT3_POS = 278;
-
     public static boolean gameLost = false;
     public static int numCheeseCollected = 0;
 
@@ -31,7 +25,7 @@ public class MazeGame {
     private static final Integer RIGHT = 1;
 
     public static void main(String[] args) {
-        Maze gameMaze = new Maze();
+        Maze gameMaze = new Maze(15, 20);
         char input;
         Scanner inputStream = new Scanner(System.in);
 
@@ -41,8 +35,9 @@ public class MazeGame {
         showGameMenu(true);
 
         gameMaze.revealFog(playerPos);
+        printMaze(gameMaze.getMaze());
 
-        while (!(gameLost || numCheeseCollected >= 5)) {
+        /*while (!(gameLost || numCheeseCollected >= 5)) {
             MazeActorController.moveCats(gameMaze);
             MazeActorController.checkCondition(gameMaze);
 
@@ -119,7 +114,7 @@ public class MazeGame {
 
             printToScr("Cheese collected: " + numCheeseCollected + " of 5\n");
             printToScr("GAME OVER; please try again.");
-        }
+        }*/
     }
 
     private static void uncoverMaze(Maze myMaze){

@@ -23,10 +23,15 @@ public class MazeActorController {
 
     public static void initGameActors(Maze gameMaze) {
 
-        cat1Pos = MazeGame.CAT1_POS;
-        cat2Pos = MazeGame.CAT2_POS;
-        cat3Pos = MazeGame.CAT3_POS;
-        playerPos = MazeGame.PLAYER_POS;
+        ArrayList<Integer> corners = gameMaze.getMazeCorners();
+
+        playerPos = corners.get(0);
+
+        cat1Pos = corners.get(1);
+        cat2Pos = corners.get(2);
+        cat3Pos = corners.get(3);
+
+        MazeUI.printToScr(playerPos + '|' + cat1Pos);
 
         ArrayList<Character> mazeView = gameMaze.getMazeView();
 
@@ -56,46 +61,48 @@ public class MazeActorController {
         ArrayList<Character> mazeView = gameMaze.getMazeView();
         ArrayList<Integer> mazeEdges = gameMaze.getMazeWallPositions();
 
+        Integer mazeWidth = gameMaze.getMazeWidth();
+
         //Ensures that each actor has at least one direction to move towards initially.
         //The if statements use the array which maintains the positions of the internal walls of the maze
         //to make sure that there is atleast one way out for each actor.
         if ((mazeEdges.contains(playerPos + 1))
-                && (mazeEdges.contains(playerPos + 20))) {
+                && (mazeEdges.contains(playerPos + mazeWidth))) {
 
-            gameMaze.modifyMazePos(playerPos + 20, '.');
-            mazeEdges.remove(new Integer(playerPos + 20));
+            gameMaze.modifyMazePos(playerPos + mazeWidth, '.');
+            mazeEdges.remove(new Integer(playerPos + mazeWidth));
         }
 
         if ((mazeEdges.contains(cat1Pos - 1))
-                && (mazeEdges.contains(cat1Pos + 20))) {
+                && (mazeEdges.contains(cat1Pos + mazeWidth))) {
 
             gameMaze.modifyMazePos(cat1Pos - 1, '.');
             mazeEdges.remove(new Integer(cat1Pos - 1));
         }
 
         if ((mazeEdges.contains(cat2Pos + 1))
-                && (mazeEdges.contains(cat2Pos - 20))) {
+                && (mazeEdges.contains(cat2Pos - mazeWidth))) {
 
-            gameMaze.modifyMazePos(cat2Pos - 20, '.');
-            mazeEdges.remove(new Integer(cat2Pos - 20));
+            gameMaze.modifyMazePos(cat2Pos - mazeWidth, '.');
+            mazeEdges.remove(new Integer(cat2Pos - mazeWidth));
         }
 
         if ((mazeEdges.contains(cat3Pos - 1))
-                && (mazeEdges.contains(cat3Pos - 20))) {
+                && (mazeEdges.contains(cat3Pos - mazeWidth))) {
 
-            gameMaze.modifyMazePos(cat3Pos - 20, '.');
-            mazeEdges.remove(new Integer(cat3Pos - 20));
+            gameMaze.modifyMazePos(cat3Pos - mazeWidth, '.');
+            mazeEdges.remove(new Integer(cat3Pos - mazeWidth));
         }
 
         //Places cheese until it is accessible from at east one direction.
-        while ((mazeEdges.contains(cheesePos + 20))
-                && (mazeEdges.contains((cheesePos - 20)))
+        while ((mazeEdges.contains(cheesePos + mazeWidth))
+                && (mazeEdges.contains((cheesePos - mazeWidth)))
                 && (mazeEdges.contains(cheesePos - 1))
                 && (mazeEdges.contains(cheesePos + 1))) {
 
             gameMaze.modifyMazePos(cheesePos, '.');
             mazeView.set(cheesePos, '.');
-            mazeEdges.remove(cheesePos);
+            //mazeEdges.remove(cheesePos);
 
             placeCheese(gameMaze);
         }
@@ -259,6 +266,9 @@ public class MazeActorController {
         ArrayList<Integer> tempMazeEdge = new ArrayList<>(gameMaze.getMazeWallPositions());
         ArrayList<Character> mazeView = gameMaze.getMazeView();
 
+        Integer mazeWidth = gameMaze.getMazeWidth();
+        Integer mazeHeight = gameMaze.getMazeHeight();
+
         Collections.shuffle(tempMazeEdge);
         Integer x = tempMazeEdge.get(0);
 
@@ -266,15 +276,17 @@ public class MazeActorController {
             //Ensures that the perimeter walls or the actor's locations
             //are not replaced with cheese.
             //Only the inside walls are considered.
-            if ((x % 20 == 0 || x % 20 == 19)
-                    || (x >= 0 && x <= 19)
-                    || (x >= 279 && x <= 300) || (x == playerPos)
+            if ((x % mazeWidth == 0
+                    || x % mazeWidth == (mazeWidth - 1))
+                    || (x >= 0 && x <= mazeWidth -1)
+                    || (x >=(mazeWidth * (mazeHeight - 1) + 1) && x <= (mazeHeight * mazeWidth))
+                    || (x == playerPos)
                     || (x == cat1Pos)
                     || (x == cat2Pos)
                     || (x == cat3Pos)) {
+
                 Collections.shuffle(tempMazeEdge);
                 x = tempMazeEdge.get(0);
-
 
             } else {
                 break;
@@ -282,6 +294,7 @@ public class MazeActorController {
         }
 
         gameMaze.modifyMazePos(x, '$');
+        gameMaze.modifyMazeViewAtPos(x, '$');
         gameMaze.getMazeWallPositions().remove(x);
         mazeView.set(x, '$');
         cheesePos = x;

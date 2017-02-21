@@ -1,5 +1,7 @@
 package ca.cmpt213.CatAndMouse.UI;
 
+import ca.cmpt213.CatAndMouse.Logic.Maze;
+
 import java.util.ArrayList;
 
 /**
@@ -9,7 +11,7 @@ public class MazeUI {
 
     public static void printMaze(ArrayList<?> maze) {
         for(int x = 0; x < maze.size(); x++) {
-            if(x % 20 == 0) {
+            if(x % Maze.mazeWidthForPrint == 0) {
                 printToScr("\n");
             }
             printToScr(maze.get(x));
