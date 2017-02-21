@@ -16,18 +16,16 @@ public class Maze {
     private static ArrayList<Character> mazeView;
     private static int maze_UP = 0;
     private static int maze_DOWN = 0;
+
+
     private static ArrayList<Integer> mazeCorners;
-
-
     private static Integer mazeWidth;
-    public static Integer mazeWidthForPrint;
     private static Integer mazeHeight;
     private static Integer mazeArea;
 
     public Maze(int height, int width) {
         mazeHeight = height;
         mazeWidth = width;
-        mazeWidthForPrint = width;
 
         mazeArea = mazeHeight * mazeWidth;
 

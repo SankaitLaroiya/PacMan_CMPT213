@@ -52,63 +52,7 @@ public class MazeActorController {
         checkActorsMobility(gameMaze);
     }
 
-    /**
-     * Method to check that all the actors have at least one direction to move into after initial placing.
-     *
-     * @param gameMaze The maze the actors are on.
-     */
-    private static void checkActorsMobility(Maze gameMaze) {
-        ArrayList<Character> mazeView = gameMaze.getMazeView();
-        ArrayList<Integer> mazeEdges = gameMaze.getMazeWallPositions();
-
-        Integer mazeWidth = gameMaze.getMazeWidth();
-
-        //Ensures that each actor has at least one direction to move towards initially.
-        //The if statements use the array which maintains the positions of the internal walls of the maze
-        //to make sure that there is atleast one way out for each actor.
-        if ((mazeEdges.contains(playerPos + 1))
-                && (mazeEdges.contains(playerPos + mazeWidth))) {
-
-            gameMaze.modifyMazePos(playerPos + mazeWidth, '.');
-            mazeEdges.remove(new Integer(playerPos + mazeWidth));
-        }
-
-        if ((mazeEdges.contains(cat1Pos - 1))
-                && (mazeEdges.contains(cat1Pos + mazeWidth))) {
-
-            gameMaze.modifyMazePos(cat1Pos - 1, '.');
-            mazeEdges.remove(new Integer(cat1Pos - 1));
-        }
-
-        if ((mazeEdges.contains(cat2Pos + 1))
-                && (mazeEdges.contains(cat2Pos - mazeWidth))) {
-
-            gameMaze.modifyMazePos(cat2Pos - mazeWidth, '.');
-            mazeEdges.remove(new Integer(cat2Pos - mazeWidth));
-        }
-
-        if ((mazeEdges.contains(cat3Pos - 1))
-                && (mazeEdges.contains(cat3Pos - mazeWidth))) {
-
-            gameMaze.modifyMazePos(cat3Pos - mazeWidth, '.');
-            mazeEdges.remove(new Integer(cat3Pos - mazeWidth));
-        }
-
-        //Places cheese until it is accessible from at east one direction.
-        while ((mazeEdges.contains(cheesePos + mazeWidth))
-                && (mazeEdges.contains((cheesePos - mazeWidth)))
-                && (mazeEdges.contains(cheesePos - 1))
-                && (mazeEdges.contains(cheesePos + 1))) {
-
-            gameMaze.modifyMazePos(cheesePos, '.');
-            mazeView.set(cheesePos, '.');
-            //mazeEdges.remove(cheesePos);
-
-            placeCheese(gameMaze);
-        }
-    }
-
-    // REMEMBER: x = new move + player position
+    // NOTE: x = new move + player position
     public static void movePlayer(int x, Maze gameMaze) {
         ArrayList<Character> maze = gameMaze.getMaze();
         ArrayList<Character> mazeView = gameMaze.getMazeView();
@@ -140,8 +84,10 @@ public class MazeActorController {
 
         ArrayList directions = new ArrayList<Integer>(4);
 
-        directions.add(-20);
-        directions.add(20);
+        Integer mazeWidth = gameMaze.getMazeWidth();
+
+        directions.add((-1 * mazeWidth));
+        directions.add(mazeWidth);
         directions.add(1);
         directions.add(-1);
 
@@ -262,6 +208,70 @@ public class MazeActorController {
         }
     }
 
+    /**
+     * Method to check that all the actors have at least one direction to move into after initial placing.
+     *
+     * @param gameMaze The maze the actors are on.
+     */
+    private static void checkActorsMobility(Maze gameMaze) {
+        ArrayList<Character> mazeView = gameMaze.getMazeView();
+        ArrayList<Integer> mazeEdges = gameMaze.getMazeWallPositions();
+
+        Integer mazeWidth = gameMaze.getMazeWidth();
+
+        //Ensures that each actor has at least one direction to move towards initially.
+        //The if statements use the array which maintains the positions of the internal walls of the maze
+        //to make sure that there is atleast one way out for each actor.
+        if ((mazeEdges.contains(playerPos + 1))
+                && (mazeEdges.contains(playerPos + mazeWidth))) {
+
+            gameMaze.modifyMazePos(playerPos + mazeWidth, '.');
+            mazeEdges.remove(new Integer(playerPos + mazeWidth));
+        }
+
+        if ((mazeEdges.contains(cat1Pos - 1))
+                && (mazeEdges.contains(cat1Pos + mazeWidth))) {
+
+            gameMaze.modifyMazePos(cat1Pos - 1, '.');
+            mazeEdges.remove(new Integer(cat1Pos - 1));
+        }
+
+        if ((mazeEdges.contains(cat2Pos + 1))
+                && (mazeEdges.contains(cat2Pos - mazeWidth))) {
+
+            gameMaze.modifyMazePos(cat2Pos - mazeWidth, '.');
+            mazeEdges.remove(new Integer(cat2Pos - mazeWidth));
+        }
+
+        if ((mazeEdges.contains(cat3Pos - 1))
+                && (mazeEdges.contains(cat3Pos - mazeWidth))) {
+
+            gameMaze.modifyMazePos(cat3Pos - mazeWidth, '.');
+            mazeEdges.remove(new Integer(cat3Pos - mazeWidth));
+        }
+
+        checkCheeseAccess(gameMaze);
+    }
+
+    private static void checkCheeseAccess(Maze gameMaze) {
+        ArrayList<Character> mazeView = gameMaze.getMazeView();
+        ArrayList<Integer> mazeEdges = gameMaze.getMazeWallPositions();
+        Integer mazeWidth = gameMaze.getMazeWidth();
+
+        //Places cheese until it is accessible from at east one direction.
+        while ((mazeEdges.contains(cheesePos + mazeWidth))
+                && (mazeEdges.contains((cheesePos - mazeWidth)))
+                && (mazeEdges.contains(cheesePos - 1))
+                && (mazeEdges.contains(cheesePos + 1))) {
+
+            gameMaze.modifyMazePos(cheesePos, '.');
+            mazeView.set(cheesePos, '.');
+            //mazeEdges.remove(cheesePos);
+
+            placeCheese(gameMaze);
+        }
+    }
+
     private static void placeCheese(Maze gameMaze) {
         ArrayList<Integer> tempMazeEdge = new ArrayList<>(gameMaze.getMazeWallPositions());
         ArrayList<Character> mazeView = gameMaze.getMazeView();
@@ -298,5 +308,7 @@ public class MazeActorController {
         gameMaze.getMazeWallPositions().remove(x);
         mazeView.set(x, '$');
         cheesePos = x;
+
+        checkCheeseAccess(gameMaze);
     }
 }

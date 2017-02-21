@@ -9,9 +9,10 @@ import java.util.ArrayList;
  */
 public class MazeUI {
 
-    public static void printMaze(ArrayList<?> maze) {
+    public static void printMaze(ArrayList<?> maze, int mazeWidth) {
+
         for(int x = 0; x < maze.size(); x++) {
-            if(x % Maze.mazeWidthForPrint == 0) {
+            if(x % mazeWidth == 0) {
                 printToScr("\n");
             }
             printToScr(maze.get(x));
