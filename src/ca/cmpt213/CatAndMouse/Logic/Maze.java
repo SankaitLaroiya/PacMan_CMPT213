@@ -2,7 +2,6 @@ package ca.cmpt213.CatAndMouse.Logic;
 
 import ca.cmpt213.CatAndMouse.UI.MazeUI;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Random;
@@ -14,8 +13,6 @@ public class Maze {
     private static ArrayList<Character> maze;
     private static ArrayList<Integer> mazeWallPositions;
     private static ArrayList<Character> mazeView;
-    private static int maze_UP = 0;
-    private static int maze_DOWN = 0;
 
 
     private static ArrayList<Integer> mazeCorners;
@@ -40,9 +37,6 @@ public class Maze {
         }
 
         mazeWallPositions = new ArrayList<Integer>(120);
-
-        maze_DOWN = mazeWidth;
-        maze_UP = -1 * mazeWidth;
 
         calculateMazeCorners();
     }
@@ -92,7 +86,6 @@ public class Maze {
         //Save the basic maze for UI.
         Collections.copy(mazeView, maze);
 
-
         //Horizontal grid walls
         for(int x = 0; x < maze.size(); x += mazeWidth) {
             if((x % 3) * mazeWidth == 0){
@@ -104,7 +97,7 @@ public class Maze {
         }
 
         //Vertical Grid walls
-        for(int x = 0; x < mazeWidth; x+= 3) {
+        for(int x = 0; x < mazeWidth; x+= 4) {
             for(int y = x; y < mazeArea; y += mazeWidth) {
                 maze.set(y, '#');
                 if(!(mazeWallPositions.contains(y))) {
@@ -113,7 +106,7 @@ public class Maze {
             }
         }
 
-        applyKruskalAlgo();
+       applyKruskalAlgo();
     }
 
     public void modifyMazePos(int pos, Character withChar) {
@@ -133,20 +126,14 @@ public class Maze {
 
     private void calculateMazeCorners() {
         Integer upperLeft = mazeWidth + 1;
-
         Integer upperRight = ((mazeWidth - 1) * 2);
-
         Integer lowerRight = (mazeArea - 1) - mazeWidth - 1;
-
         Integer lowerLeft = lowerRight - mazeWidth + 3;
 
         mazeCorners.add(0, upperLeft);
         mazeCorners.add(1, upperRight);
-
         mazeCorners.add(2, lowerLeft);
         mazeCorners.add(3, lowerRight);
-
-        MazeUI.printToScr(upperLeft + " " + upperRight +" " + lowerLeft + " " + lowerRight + " \n");
     }
 
     private void applyKruskalAlgo() {
@@ -186,4 +173,3 @@ public class Maze {
         }
     }
 }
-

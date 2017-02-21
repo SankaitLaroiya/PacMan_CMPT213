@@ -19,21 +19,18 @@ public class MazeGame {
     public static boolean gameLost = false;
     public static int numCheeseCollected = 0;
 
-    private static Integer dir_UP = 0;
-    private static Integer dir_DOWN = 0;
-    private static Integer dir_RIGHT = 1;
-    private static Integer dir_LEFT = -1;
-
     public static void main(String[] args) {
         int height = 15;
-        int width = 40;
+        int width = 20;
         char input;
 
         Scanner inputStream = new Scanner(System.in);
         Maze gameMaze = new Maze(height, width);
 
-        dir_UP = -1 * width;
-        dir_DOWN = width;
+        Integer dir_UP = -1 * width;
+        Integer dir_DOWN = width;
+        Integer dir_RIGHT = 1;
+        Integer dir_LEFT = -1;
 
         gameMaze.constructMaze();
         MazeActorController.initGameActors(gameMaze);
