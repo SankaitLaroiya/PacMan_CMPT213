@@ -76,9 +76,8 @@ public class MazeActorController {
     }
 
     public static void moveCats(Maze gameMaze) {
-        int catNum = 0;
-        Integer moveToPos = 0;
-        Character catPrevStep = ' ';
+        Integer moveToPos;
+        Character catPrevStep;
 
         ArrayList maze = gameMaze.getMaze();
         ArrayList mazeView = gameMaze.getMazeView();
@@ -153,7 +152,6 @@ public class MazeActorController {
      * @param gameMaze The maze the actors are on.
      */
     private static void checkActorsMobility(Maze gameMaze) {
-        ArrayList<Character> mazeView = gameMaze.getMazeView();
         ArrayList<Integer> mazeEdges = gameMaze.getMazeWallPositions();
 
         Integer mazeWidth = gameMaze.getMazeWidth();

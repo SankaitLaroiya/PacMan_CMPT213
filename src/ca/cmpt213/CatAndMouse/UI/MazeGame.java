@@ -13,7 +13,7 @@ import static ca.cmpt213.CatAndMouse.UI.MazeUI.printMaze;
 import static ca.cmpt213.CatAndMouse.UI.MazeUI.showGameMenu;
 
 /**
- * Cat and Mouse game's main activity class
+ * Cat and Mouse game's main activity class. Co-ordinates user input with other classes.
  */
 public class MazeGame {
     public static boolean gameLost = false;
@@ -109,7 +109,7 @@ public class MazeGame {
         }
 
         if(gameLost){
-            printToScr("\nSorry, cat got you!\n");
+            printToScr("\nSorry, a cat got you!\n");
 
             uncoverMaze(gameMaze);
             printMaze(gameMaze.getMazeView(), gameMaze.getMazeWidth());

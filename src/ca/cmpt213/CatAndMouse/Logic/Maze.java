@@ -1,7 +1,5 @@
 package ca.cmpt213.CatAndMouse.Logic;
 
-import ca.cmpt213.CatAndMouse.UI.MazeUI;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Random;
@@ -13,9 +11,8 @@ public class Maze {
     private static ArrayList<Character> maze;
     private static ArrayList<Integer> mazeWallPositions;
     private static ArrayList<Character> mazeView;
-
-
     private static ArrayList<Integer> mazeCorners;
+
     private static Integer mazeWidth;
     private static Integer mazeHeight;
     private static Integer mazeArea;
@@ -106,7 +103,7 @@ public class Maze {
             }
         }
 
-       applyKruskalAlgo();
+       applyPrimsAlgorithm();
     }
 
     public void modifyMazePos(int pos, Character withChar) {
@@ -124,6 +121,9 @@ public class Maze {
         mazeView.set(playerPos - mazeWidth, maze.get(playerPos - mazeWidth));
     }
 
+    /**
+     * Method to analyze where the corners (excluding the perimeter walls) lie within the maze.
+     */
     private void calculateMazeCorners() {
         Integer upperLeft = mazeWidth + 1;
         Integer upperRight = ((mazeWidth - 1) * 2);
@@ -136,7 +136,11 @@ public class Maze {
         mazeCorners.add(3, lowerRight);
     }
 
-    private void applyKruskalAlgo() {
+    /**
+     * Applies Prim's Algorithm to the basic maze.
+     * Reference: https://en.wikipedia.org/wiki/Maze_generation_algorithm#Randomized_Prim.27s_algorithm
+     */
+    private void applyPrimsAlgorithm() {
         Random remove = new Random();
 
         //Cannot delete an edge while iterating over an array of edges,

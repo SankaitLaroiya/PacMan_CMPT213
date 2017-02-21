@@ -1,11 +1,9 @@
 package ca.cmpt213.CatAndMouse.UI;
 
-import ca.cmpt213.CatAndMouse.Logic.Maze;
-
 import java.util.ArrayList;
 
 /**
- * Class to handle user interaction (input and output)
+ * Class to handle all the 'printing to console' tasks
  */
 public class MazeUI {
 
