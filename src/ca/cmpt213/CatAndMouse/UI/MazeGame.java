@@ -14,6 +14,7 @@ import static ca.cmpt213.CatAndMouse.UI.MazeUI.showGameMenu;
 
 /**
  * Cat and Mouse game's main activity class. Co-ordinates user input with other classes.
+ * Git Repository @: https://csil-git1.cs.surrey.sfu.ca/sankaitk/CMPT213-ChaseTheCheese.git
  */
 public class MazeGame {
     public static boolean gameLost = false;

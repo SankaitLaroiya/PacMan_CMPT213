@@ -2,9 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a0326688-fb60-479c-b5e2-a009c0250a67" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ca/cmpt213/CatAndMouse/Logic/Maze.java" afterPath="$PROJECT_DIR$/src/ca/cmpt213/CatAndMouse/Logic/Maze.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ca/cmpt213/CatAndMouse/Logic/MazeActorController.java" afterPath="$PROJECT_DIR$/src/ca/cmpt213/CatAndMouse/Logic/MazeActorController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ca/cmpt213/CatAndMouse/UI/MazeGame.java" afterPath="$PROJECT_DIR$/src/ca/cmpt213/CatAndMouse/UI/MazeGame.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -27,8 +24,8 @@
       <file leaf-file-name="MazeGame.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ca/cmpt213/CatAndMouse/UI/MazeGame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="896">
-              <caret line="126" column="0" lean-forward="false" selection-start-line="126" selection-start-column="0" selection-end-line="126" selection-end-column="0" />
+            <state relative-caret-position="114">
+              <caret line="16" column="91" lean-forward="false" selection-start-line="16" selection-start-column="91" selection-end-line="16" selection-end-column="91" />
               <folding>
                 <element signature="method#uncoverMaze#0;class#MazeGame#0" expanded="false" />
               </folding>
@@ -1023,17 +1020,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ca/cmpt213/CatAndMouse/UI/MazeUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-          <folding>
-            <element signature="method#printMaze#0;class#MazeUI#0" expanded="false" />
-            <element signature="method#showGameMenu#0;class#MazeUI#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ca/cmpt213/CatAndMouse/Logic/Maze.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="646">
@@ -1070,10 +1056,21 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/ca/cmpt213/CatAndMouse/UI/MazeUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <folding>
+            <element signature="method#printMaze#0;class#MazeUI#0" expanded="false" />
+            <element signature="method#showGameMenu#0;class#MazeUI#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/ca/cmpt213/CatAndMouse/UI/MazeGame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="896">
-          <caret line="126" column="0" lean-forward="false" selection-start-line="126" selection-start-column="0" selection-end-line="126" selection-end-column="0" />
+        <state relative-caret-position="114">
+          <caret line="16" column="91" lean-forward="false" selection-start-line="16" selection-start-column="91" selection-end-line="16" selection-end-column="91" />
           <folding>
             <element signature="method#uncoverMaze#0;class#MazeGame#0" expanded="false" />
           </folding>
