@@ -20,9 +20,9 @@ public class MazeActorController {
 
         ArrayList<Integer> corners = gameMaze.getMazeCorners();
 
-        catPrevStepLog.add('.');
-        catPrevStepLog.add('.');
-        catPrevStepLog.add('.');
+        catPrevStepLog.add(' ');
+        catPrevStepLog.add(' ');
+        catPrevStepLog.add(' ');
 
         playerPos = corners.get(0);
 
@@ -113,20 +113,21 @@ public class MazeActorController {
                 }
             }
 
-            catPrevStep = (Character)mazeView.get(moveToPos);
+            char replacementStep = catPrevStepLog.get(x);
+
+            catPrevStep = (Character)maze.get(moveToPos);
 
             if(catPrevStep == '!'|| catPrevStep == '@') {
                 catPrevStepLog.set(x, ' ');
-                catPrevStep = ' ';
             }
             else {
                 catPrevStepLog.set(x, catPrevStep);
             }
 
-            gameMaze.modifyMazePos(catPos, catPrevStep);
+            gameMaze.modifyMazePos(catPos, replacementStep);
             gameMaze.modifyMazePos(moveToPos, '!');
 
-            gameMaze.modifyMazeViewAtPos(catPos, catPrevStep);
+            gameMaze.modifyMazeViewAtPos(catPos, replacementStep);
             gameMaze.modifyMazeViewAtPos(moveToPos, '!');
 
             catPositions.set(x, moveToPos);
@@ -255,5 +256,9 @@ public class MazeActorController {
         cheesePos = x;
 
         checkCheeseAccess(gameMaze);
+    }
+
+    public static void resetCatSteps() {
+        Collections.replaceAll(catPrevStepLog,'.', ' ');
     }
 }

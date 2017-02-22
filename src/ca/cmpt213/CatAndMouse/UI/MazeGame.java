@@ -20,6 +20,11 @@ public class MazeGame {
     public static int numCheeseCollected = 0;
 
     public static void main(String[] args) {
+        //The assignment spec wants the maze to be only 15 x 20 however, the values of
+        //height and width below can be changed to get a game with the desired maze size.
+        //for a proper looking maze, please use size height = 20, width = 35 to see the
+        //maze algorithm in action
+
         int height = 15;
         int width = 20;
         char input;
@@ -109,7 +114,7 @@ public class MazeGame {
         }
 
         if(gameLost){
-            printToScr("\nSorry, a cat got you!\n");
+            printToScr("\nSorry, a cat got you!");
 
             uncoverMaze(gameMaze);
             printMaze(gameMaze.getMazeView(), gameMaze.getMazeWidth());
@@ -122,5 +127,6 @@ public class MazeGame {
     private static void uncoverMaze(Maze myMaze){
         Collections.replaceAll(myMaze.getMaze(),'.', ' ');
         myMaze.setMazeView(myMaze.getMaze());
+        MazeActorController.resetCatSteps();
     }
 }

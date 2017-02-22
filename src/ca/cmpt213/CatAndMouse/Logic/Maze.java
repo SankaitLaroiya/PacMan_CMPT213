@@ -1,5 +1,6 @@
 package ca.cmpt213.CatAndMouse.Logic;
 
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Random;
@@ -85,8 +86,14 @@ public class Maze {
 
         //Horizontal grid walls
         for(int x = 0; x < maze.size(); x += mazeWidth) {
+
+
             if((x % 3) * mazeWidth == 0){
                 for(int y = x; y < x + mazeWidth; y++) {
+                    //skips placing first wall segment in the first wall group below the player.
+                    if(y == (mazeCorners.get(0) + (2 * mazeWidth))) {
+                        continue;
+                    }
                     maze.set(y, '#');
                     mazeWallPositions.add(y);
                 }
@@ -103,7 +110,9 @@ public class Maze {
             }
         }
 
-       applyPrimsAlgorithm();
+        //The same statement can be executed multiple times to get the desired density of the walls.
+        //The more times its executed on the maze, the less denser it will become.
+        applyPrimsAlgorithm();
     }
 
     public void modifyMazePos(int pos, Character withChar) {
