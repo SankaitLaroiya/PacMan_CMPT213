@@ -159,12 +159,6 @@ public class Maze {
         for(Integer x : mazeWallPositions) {
 
             //Avoid perimeter walls
-            /*if((x % mazeWidth == 0 || x % mazeWidth == mazeWidth - 1)
-                    || (x >= 0 && x <= mazeWidth)
-                    || (x >= (mazeArea - mazeWidth) && x <= mazeArea)) {
-                continue;
-            }*/
-
             if ((x % mazeWidth == 0
                     || x % mazeWidth == (mazeWidth - 1))
                     || (x >= 0 && x <= mazeWidth -1)

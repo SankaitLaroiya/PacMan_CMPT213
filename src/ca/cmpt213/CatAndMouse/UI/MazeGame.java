@@ -21,7 +21,7 @@ public class MazeGame {
     public static int numCheeseCollected = 0;
 
     public static void main(String[] args) {
-        //The assignment spec wants the maze to be only 15 x 20 however, the values of
+        //The assignment spec wants the maze to be only 20 x 15 however, the values of
         //height and width below can be changed to get a game with the desired maze size.
         //for a proper looking maze, please use size height = 20, width = 35 to see the
         //maze algorithm in action
