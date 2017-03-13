@@ -1,10 +1,21 @@
 package ca.cmpt213.CatAndMouse.Logic;
 
+import ca.cmpt213.CatAndMouse.UI.InputController;
 import ca.cmpt213.CatAndMouse.UI.MazeGame;
 import ca.cmpt213.CatAndMouse.UI.MazeUI;
 
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.util.ArrayList;
 import java.util.Collections;
+
+import static ca.cmpt213.CatAndMouse.UI.MazeGame.gameLost;
+import static ca.cmpt213.CatAndMouse.UI.MazeGame.numCheeseCollected;
+import static ca.cmpt213.CatAndMouse.UI.MazeGame.uncoverMaze;
+import static ca.cmpt213.CatAndMouse.UI.MazeUI.printMaze;
+import static ca.cmpt213.CatAndMouse.UI.MazeUI.printToScr;
+import static java.awt.event.KeyEvent.VK_DOWN;
+import static java.awt.event.KeyEvent.VK_UP;
 
 /**
  * Class to move the cats every click in the game and handle player moves.
@@ -15,24 +26,41 @@ public class MazeActorController {
     private static ArrayList<Integer> catPositions = new ArrayList<>(3);
     private static ArrayList<Character> catPrevStepLog = new ArrayList<>(3);
 
+    public MazeActorController() {
+
+    }
 
     public static void initGameActors(Maze gameMaze) {
 
         ArrayList<Integer> corners = gameMaze.getMazeCorners();
 
-        catPrevStepLog.add(' ');
-        catPrevStepLog.add(' ');
-        catPrevStepLog.add(' ');
+        catPrevStepLog.add('.');
+        catPrevStepLog.add('.');
+        catPrevStepLog.add('.');
+        catPrevStepLog.add('.');
+        catPrevStepLog.add('.');
+        catPrevStepLog.add('.');
 
         playerPos = corners.get(0);
 
         Integer cat1Pos = corners.get(1);
+        Integer cat1APos = cat1Pos - 1;
+
         Integer cat2Pos = corners.get(2);
+        Integer cat2APos = cat2Pos + 1;
+
         Integer cat3Pos = corners.get(3);
+        Integer cat3APos = cat3Pos - 1;
 
         catPositions.add(0, cat1Pos);
-        catPositions.add(1, cat2Pos);
-        catPositions.add(2, cat3Pos);
+        catPositions.add(1, cat1APos);
+
+        catPositions.add(2, cat2Pos);
+        catPositions.add(3, cat2APos);
+
+        catPositions.add(4, cat3Pos);
+        catPositions.add(5, cat3APos);
+
 
         ArrayList<Character> mazeView = gameMaze.getMazeView();
 
@@ -42,19 +70,30 @@ public class MazeActorController {
         gameMaze.modifyMazePos(cat1Pos, '!');
         mazeView.set(cat1Pos, '!');
 
+        gameMaze.modifyMazePos(cat1Pos, '!');
+        mazeView.set(cat1APos, '!');
+
         gameMaze.modifyMazePos(cat2Pos, '!');
         mazeView.set(cat2Pos, '!');
 
+        gameMaze.modifyMazePos(cat1Pos, '!');
+        mazeView.set(cat2APos, '!');
+
         gameMaze.modifyMazePos(cat3Pos, '!');
         mazeView.set(cat3Pos, '!');
+
+        gameMaze.modifyMazePos(cat1Pos, '!');
+        mazeView.set(cat3APos, '!');
 
         placeCheese(gameMaze);
 
         checkActorsMobility(gameMaze);
     }
 
-    // NOTE: x = new move + player position
+
     public static void movePlayer(int x, Maze gameMaze) {
+        x = x + playerPos;
+
         ArrayList<Character> maze = gameMaze.getMaze();
         ArrayList<Character> mazeView = gameMaze.getMazeView();
         ArrayList<Integer> mazeEdges = gameMaze.getMazeWallPositions();
@@ -71,6 +110,8 @@ public class MazeActorController {
         mazeView.set(playerPos, ' ');
 
         playerPos = x;
+
+        gameMaze.revealFog(playerPos);
 
         checkCondition(gameMaze);
     }
@@ -132,19 +173,47 @@ public class MazeActorController {
 
             catPositions.set(x, moveToPos);
         }
+
+        checkCondition(gameMaze);
     }
 
     public static void checkCondition(Maze gameMaze) {
 
-        if (playerPos == catPositions.get(0) || playerPos == catPositions.get(1) || playerPos == catPositions.get(2)) {
-            gameMaze.modifyMazePos(playerPos, 'X');
-            gameMaze.modifyMazeViewAtPos(playerPos, 'X');
-            MazeGame.gameLost = true;
-
-        } else if (playerPos == cheesePos) {
-            placeCheese(gameMaze);
-            MazeGame.numCheeseCollected++;
+        for(Integer catPos : catPositions) {
+            if(playerPos == catPos) {
+                gameMaze.modifyMazePos(playerPos, 'X');
+                gameMaze.modifyMazeViewAtPos(playerPos, 'X');
+                gameLost = true;
+            }
         }
+
+        if (playerPos == cheesePos) {
+            placeCheese(gameMaze);
+            numCheeseCollected++;
+            printToScr("\nCheese collected: " + numCheeseCollected + " of 5\n");
+        }
+
+        if(numCheeseCollected >= 5){
+            printToScr("\nCheese collected: " + numCheeseCollected + " of 5\n");
+            printToScr("Congratulations. You've won!!");
+
+            uncoverMaze(gameMaze);
+            printMaze(gameMaze.getMazeView(), gameMaze.getMazeWidth());
+            System.exit(0);
+        }
+
+        if(gameLost){
+            printToScr("\nSorry, a cat got you!");
+
+            uncoverMaze(gameMaze);
+            printMaze(gameMaze.getMazeView(), gameMaze.getMazeWidth());
+
+            printToScr("Cheese collected: " + numCheeseCollected + " of 5\n");
+            printToScr("GAME OVER; please try again.");
+            System.exit(0);
+        }
+
+
     }
 
     /**
@@ -158,8 +227,14 @@ public class MazeActorController {
         Integer mazeWidth = gameMaze.getMazeWidth();
 
         Integer cat1Pos = catPositions.get(0);
-        Integer cat2Pos = catPositions.get(1);
-        Integer cat3Pos = catPositions.get(2);
+        Integer cat1APos = catPositions.get(1);
+
+        Integer cat2Pos = catPositions.get(2);
+        Integer cat2APos = catPositions.get(3);
+
+        Integer cat3Pos = catPositions.get(4);
+        Integer cat3APos = catPositions.get(5);
+
 
         //Ensures that each actor has at least one direction to move towards initially.
         //The if statements use the array which maintains the positions of the internal walls of the maze
@@ -178,6 +253,13 @@ public class MazeActorController {
             mazeEdges.remove(new Integer(cat1Pos - 1));
         }
 
+        if ((mazeEdges.contains(cat1APos - 1))
+                && (mazeEdges.contains(cat1APos + mazeWidth))) {
+
+            gameMaze.modifyMazePos(cat1APos - 1, '.');
+            mazeEdges.remove(new Integer(cat1APos - 1));
+        }
+
         if ((mazeEdges.contains(cat2Pos + 1))
                 && (mazeEdges.contains(cat2Pos - mazeWidth))) {
 
@@ -185,11 +267,25 @@ public class MazeActorController {
             mazeEdges.remove(new Integer(cat2Pos - mazeWidth));
         }
 
+        if ((mazeEdges.contains(cat2APos + 1))
+                && (mazeEdges.contains(cat2APos - mazeWidth))) {
+
+            gameMaze.modifyMazePos(cat2APos - mazeWidth, '.');
+            mazeEdges.remove(new Integer(cat2APos - mazeWidth));
+        }
+
         if ((mazeEdges.contains(cat3Pos - 1))
                 && (mazeEdges.contains(cat3Pos - mazeWidth))) {
 
             gameMaze.modifyMazePos(cat3Pos - mazeWidth, '.');
             mazeEdges.remove(new Integer(cat3Pos - mazeWidth));
+        }
+
+        if ((mazeEdges.contains(cat3APos - 1))
+                && (mazeEdges.contains(cat3APos - mazeWidth))) {
+
+            gameMaze.modifyMazePos(cat3APos - mazeWidth, '.');
+            mazeEdges.remove(new Integer(cat3APos - mazeWidth));
         }
 
         checkCheeseAccess(gameMaze);
@@ -208,7 +304,6 @@ public class MazeActorController {
 
             gameMaze.modifyMazePos(cheesePos, '.');
             mazeView.set(cheesePos, '.');
-            //mazeEdges.remove(cheesePos);
 
             placeCheese(gameMaze);
         }
@@ -222,8 +317,13 @@ public class MazeActorController {
         Integer mazeHeight = gameMaze.getMazeHeight();
 
         Integer cat1Pos = catPositions.get(0);
-        Integer cat2Pos = catPositions.get(1);
-        Integer cat3Pos = catPositions.get(2);
+        Integer cat1APos = catPositions.get(1);
+
+        Integer cat2Pos = catPositions.get(2);
+        Integer cat2APos = catPositions.get(3);
+
+        Integer cat3Pos = catPositions.get(4);
+        Integer cat3APos = catPositions.get(5);
 
         Collections.shuffle(tempMazeEdge);
         Integer x = tempMazeEdge.get(0);
@@ -239,7 +339,10 @@ public class MazeActorController {
                     || (x == playerPos)
                     || (x == cat1Pos)
                     || (x == cat2Pos)
-                    || (x == cat3Pos)) {
+                    || (x == cat3Pos)
+                    || (x == cat1APos)
+                    || (x == cat2APos)
+                    || (x == cat3APos)) {
 
                 Collections.shuffle(tempMazeEdge);
                 x = tempMazeEdge.get(0);
