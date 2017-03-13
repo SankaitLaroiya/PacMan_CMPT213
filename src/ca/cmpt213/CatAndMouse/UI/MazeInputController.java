@@ -9,17 +9,19 @@ import javax.swing.JPanel;
 import javax.swing.KeyStroke;
 
 /**
- * Uses arrow keys for game input.
+ * Class to register key strokes and pass the appropriate input effect on
+ * to MazeActorController and MazeGame class.
  */
 @SuppressWarnings("serial")
-public class InputController extends JPanel {
+public class MazeInputController extends JPanel {
+
     private HashMap keyMap;
     private Maze gameMaze;
 
     // Names of arrow key actions.
-    private static final String[] KEYS = {"UP", "DOWN", "LEFT", "RIGHT", "M", "H"};
+    private static final String[] KEYS = {"UP", "DOWN", "LEFT", "RIGHT", "M", "H", "E"};
 
-    public InputController(Maze gameMaze) {
+    public MazeInputController(Maze gameMaze) {
         this.gameMaze = gameMaze;
         int width = gameMaze.getMazeWidth();
 
@@ -29,9 +31,10 @@ public class InputController extends JPanel {
         keyMap.put("LEFT", -1);
         keyMap.put("RIGHT", 1);
 
-        //ADDING ONLY TO PREVENT NULL POINTER EXCEPTIONS. JUST IN CASE.
+        //ADDING ONLY TO PREVENT NULL POINTER EXCEPTIONS. IMPOSSIBLE BUT JUST IN CASE.
         keyMap.put("M", 0);
         keyMap.put("H", 0);
+        keyMap.put("E", 0);
 
         registerKeyPresses();
     }
@@ -50,16 +53,25 @@ public class InputController extends JPanel {
                 switch (move) {
                     case "M":
                         MazeGame.uncoverMaze(gameMaze);
-                        MazeUI.printMaze(gameMaze.getMazeView(), gameMaze.getMazeWidth());
+                        MazeTerminalUI.printMaze(gameMaze.getMazeView(), gameMaze.getMazeWidth());
                         break;
                     case "H":
-                        MazeUI.showGameMenu(false);
+                        MazeTerminalUI.showGameMenu(false);
+                        break;
+
+                    case "E":
+                        System.out.println("EXITING...");
+                        System.exit(0);
                         break;
 
                     default:
+                        //The win condition is checked regularly in ever move of the player and the cats.
+                        //See movePlayer and moveCats methods for details.
+
                         MazeActorController.movePlayer((int)keyMap.get(move), gameMaze);
                         MazeActorController.moveCats(gameMaze);
-                        MazeUI.printMaze(gameMaze.getMazeView(), gameMaze.getMazeWidth());
+
+                        MazeTerminalUI.printMaze(gameMaze.getMazeView(), gameMaze.getMazeWidth());
                         break;
                 }
             }

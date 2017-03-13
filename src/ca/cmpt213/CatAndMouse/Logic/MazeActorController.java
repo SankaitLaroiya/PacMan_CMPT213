@@ -1,21 +1,14 @@
 package ca.cmpt213.CatAndMouse.Logic;
 
-import ca.cmpt213.CatAndMouse.UI.InputController;
-import ca.cmpt213.CatAndMouse.UI.MazeGame;
-import ca.cmpt213.CatAndMouse.UI.MazeUI;
-
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 import java.util.ArrayList;
 import java.util.Collections;
 
+import ca.cmpt213.CatAndMouse.UI.MazeTerminalUI;
 import static ca.cmpt213.CatAndMouse.UI.MazeGame.gameLost;
 import static ca.cmpt213.CatAndMouse.UI.MazeGame.numCheeseCollected;
 import static ca.cmpt213.CatAndMouse.UI.MazeGame.uncoverMaze;
-import static ca.cmpt213.CatAndMouse.UI.MazeUI.printMaze;
-import static ca.cmpt213.CatAndMouse.UI.MazeUI.printToScr;
-import static java.awt.event.KeyEvent.VK_DOWN;
-import static java.awt.event.KeyEvent.VK_UP;
+import static ca.cmpt213.CatAndMouse.UI.MazeTerminalUI.printMaze;
+import static ca.cmpt213.CatAndMouse.UI.MazeTerminalUI.printToScr;
 
 /**
  * Class to move the cats every click in the game and handle player moves.
@@ -90,7 +83,6 @@ public class MazeActorController {
         checkActorsMobility(gameMaze);
     }
 
-
     public static void movePlayer(int x, Maze gameMaze) {
         x = x + playerPos;
 
@@ -100,7 +92,7 @@ public class MazeActorController {
 
         //Check if the selected move is valid
         if (mazeEdges.contains(x)) {
-            MazeUI.printToScr("Invalid Move: You cannot move through walls!\n");
+            MazeTerminalUI.printToScr("Invalid Move: You cannot move through walls!\n");
             return;
         }
 

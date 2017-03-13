@@ -13,6 +13,7 @@ public class Maze {
     private static ArrayList<Integer> mazeWallPositions;
     private static ArrayList<Character> mazeView;
     private static ArrayList<Integer> mazeCorners;
+    private static ArrayList<MazeModListener> listeners = new ArrayList<>(1);
 
     private static Integer mazeWidth;
     private static Integer mazeHeight;
@@ -178,5 +179,9 @@ public class Maze {
         for(Integer i : removeLater) {
             mazeWallPositions.remove(i);
         }
+    }
+
+    public void addMazeModListener(MazeModListener newListener) {
+        listeners.add(newListener);
     }
 }

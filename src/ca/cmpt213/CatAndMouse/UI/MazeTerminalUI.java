@@ -5,7 +5,7 @@ import java.util.ArrayList;
 /**
  * Class to handle all the 'printing to console' tasks
  */
-public class MazeUI {
+public class MazeTerminalUI {
 
     public static void printMaze(ArrayList<?> maze, int mazeWidth) {
 
