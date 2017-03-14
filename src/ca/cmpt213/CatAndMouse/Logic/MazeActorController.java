@@ -3,12 +3,11 @@ package ca.cmpt213.CatAndMouse.Logic;
 import java.util.ArrayList;
 import java.util.Collections;
 
-import ca.cmpt213.CatAndMouse.UI.MazeTerminalUI;
+import ca.cmpt213.CatAndMouse.UI.MazeGUI;
+
+import static ca.cmpt213.CatAndMouse.UI.MazeGUI.*;
 import static ca.cmpt213.CatAndMouse.UI.MazeGame.gameLost;
-import static ca.cmpt213.CatAndMouse.UI.MazeGame.numCheeseCollected;
 import static ca.cmpt213.CatAndMouse.UI.MazeGame.uncoverMaze;
-import static ca.cmpt213.CatAndMouse.UI.MazeTerminalUI.printMaze;
-import static ca.cmpt213.CatAndMouse.UI.MazeTerminalUI.printToScr;
 
 /**
  * Class to move the cats every click in the game and handle player moves.
@@ -16,6 +15,7 @@ import static ca.cmpt213.CatAndMouse.UI.MazeTerminalUI.printToScr;
 public class MazeActorController {
     public static int playerPos;
     private static int cheesePos;
+
     private static ArrayList<Integer> catPositions = new ArrayList<>(3);
     private static ArrayList<Character> catPrevStepLog = new ArrayList<>(3);
 
@@ -57,26 +57,26 @@ public class MazeActorController {
 
         ArrayList<Character> mazeView = gameMaze.getMazeView();
 
-        gameMaze.modifyMazePos(playerPos, '@');
         mazeView.set(playerPos, '@');
+        gameMaze.modifyMazePos(playerPos, '@');
 
-        gameMaze.modifyMazePos(cat1Pos, '!');
         mazeView.set(cat1Pos, '!');
-
         gameMaze.modifyMazePos(cat1Pos, '!');
+
         mazeView.set(cat1APos, '!');
+        gameMaze.modifyMazePos(cat1Pos, '!');
 
-        gameMaze.modifyMazePos(cat2Pos, '!');
         mazeView.set(cat2Pos, '!');
+        gameMaze.modifyMazePos(cat2Pos, '!');
 
-        gameMaze.modifyMazePos(cat1Pos, '!');
         mazeView.set(cat2APos, '!');
-
-        gameMaze.modifyMazePos(cat3Pos, '!');
-        mazeView.set(cat3Pos, '!');
-
         gameMaze.modifyMazePos(cat1Pos, '!');
+
+        mazeView.set(cat3Pos, '!');
+        gameMaze.modifyMazePos(cat3Pos, '!');
+
         mazeView.set(cat3APos, '!');
+        gameMaze.modifyMazePos(cat1Pos, '!');
 
         placeCheese(gameMaze);
 
@@ -92,18 +92,27 @@ public class MazeActorController {
 
         //Check if the selected move is valid
         if (mazeEdges.contains(x)) {
-            MazeTerminalUI.printToScr("Invalid Move: You cannot move through walls!\n");
+            MazeGUI.playSound(INVALID_MOVE);
             return;
         }
 
-        maze.set(x, '@');
-        mazeView.set(x, '@');
-        maze.set(playerPos, ' ');
-        mazeView.set(playerPos, ' ');
+        gameMaze.modifyMazeViewAtPos(x, '@');
+        gameMaze.modifyMazePos(x, '@');
+
+        //mazeView.set(x, '@');
+        //maze.set(x, '@');
+
+        gameMaze.modifyMazeViewAtPos(playerPos, ' ');
+        gameMaze.modifyMazePos(playerPos, ' ');
+
+        //mazeView.set(playerPos, ' ');
+        //maze.set(playerPos, ' ');
 
         playerPos = x;
 
         gameMaze.revealFog(playerPos);
+
+        MazeGUI.playSound(PLAYER_MOVE);
 
         checkCondition(gameMaze);
     }
@@ -113,7 +122,6 @@ public class MazeActorController {
         Character catPrevStep;
 
         ArrayList maze = gameMaze.getMaze();
-        ArrayList mazeView = gameMaze.getMazeView();
         ArrayList mazeEdges = gameMaze.getMazeWallPositions();
 
         ArrayList directions = new ArrayList<Integer>(4);
@@ -166,10 +174,16 @@ public class MazeActorController {
             catPositions.set(x, moveToPos);
         }
 
+        MazeGUI.playSound(CAT_MOVE);
+
         checkCondition(gameMaze);
     }
 
-    public static void checkCondition(Maze gameMaze) {
+    public static void resetCatSteps() {
+        Collections.replaceAll(catPrevStepLog,'.', ' ');
+    }
+
+    private static void checkCondition(Maze gameMaze) {
 
         for(Integer catPos : catPositions) {
             if(playerPos == catPos) {
@@ -181,30 +195,21 @@ public class MazeActorController {
 
         if (playerPos == cheesePos) {
             placeCheese(gameMaze);
-            numCheeseCollected++;
-            printToScr("\nCheese collected: " + numCheeseCollected + " of 5\n");
+            gameMaze.incrementNumCheese();
+            MazeGUI.playSound(CHEESE_COLLECTED);
         }
 
-        if(numCheeseCollected >= 5){
-            printToScr("\nCheese collected: " + numCheeseCollected + " of 5\n");
-            printToScr("Congratulations. You've won!!");
-
+        if(gameMaze.getNumCheeseCollected() >= 5) {
             uncoverMaze(gameMaze);
-            printMaze(gameMaze.getMazeView(), gameMaze.getMazeWidth());
-            System.exit(0);
+            MazeGUI.playSound(GAME_WON);
+            MazeGUI.infoBox("You Won!", "Game Over");
         }
 
         if(gameLost){
-            printToScr("\nSorry, a cat got you!");
-
             uncoverMaze(gameMaze);
-            printMaze(gameMaze.getMazeView(), gameMaze.getMazeWidth());
-
-            printToScr("Cheese collected: " + numCheeseCollected + " of 5\n");
-            printToScr("GAME OVER; please try again.");
-            System.exit(0);
+            MazeGUI.playSound(GAME_LOST);
+            MazeGUI.infoBox("You Lost", "Game Over");
         }
-
 
     }
 
@@ -351,9 +356,5 @@ public class MazeActorController {
         cheesePos = x;
 
         checkCheeseAccess(gameMaze);
-    }
-
-    public static void resetCatSteps() {
-        Collections.replaceAll(catPrevStepLog,'.', ' ');
     }
 }

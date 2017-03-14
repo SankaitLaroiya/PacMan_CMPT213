@@ -19,6 +19,8 @@ public class Maze {
     private static Integer mazeHeight;
     private static Integer mazeArea;
 
+    private static int numCheeseCollected = 0;
+
     public Maze(int height, int width) {
         mazeHeight = height;
         mazeWidth = width;
@@ -38,6 +40,14 @@ public class Maze {
         mazeWallPositions = new ArrayList<Integer>(120);
 
         calculateMazeCorners();
+
+
+
+        notifyMazeChange();
+    }
+
+    public int getNumCheeseCollected() {
+        return numCheeseCollected;
     }
 
     public ArrayList<Character> getMaze() {
@@ -64,6 +74,7 @@ public class Maze {
 
     public void setMazeView(ArrayList<Character> newMazeView) {
         mazeView = newMazeView;
+        notifyMazeChange();
     }
 
     /**
@@ -114,6 +125,8 @@ public class Maze {
         //The same statement can be executed multiple times to get the desired density of the walls.
         //The more times its executed on the maze, the less denser it will become.
         applyPrimsAlgorithm();
+
+        Collections.replaceAll(maze,'.', ' ');
     }
 
     public void modifyMazePos(int pos, Character withChar) {
@@ -122,6 +135,7 @@ public class Maze {
 
     public void modifyMazeViewAtPos(int x, Character withChar) {
         mazeView.set(x, withChar);
+        notifyMazeChange();
     }
 
     public void revealFog(int playerPos) {
@@ -129,6 +143,11 @@ public class Maze {
         mazeView.set(playerPos - 1, maze.get(playerPos - 1));
         mazeView.set(playerPos + mazeWidth, maze.get(playerPos + mazeWidth));
         mazeView.set(playerPos - mazeWidth, maze.get(playerPos - mazeWidth));
+        notifyMazeChange();
+    }
+
+    public void addMazeModListener(MazeModListener newListener) {
+        listeners.add(newListener);
     }
 
     /**
@@ -181,7 +200,20 @@ public class Maze {
         }
     }
 
-    public void addMazeModListener(MazeModListener newListener) {
-        listeners.add(newListener);
+    public void notifyMazeChange() {
+        for(MazeModListener m : listeners) {
+            m.mazeModified();
+        }
+    }
+
+    public void incrementNumCheese() {
+        numCheeseCollected++;
+        notifyStatChange();
+    }
+
+    private void notifyStatChange() {
+        for(MazeModListener m : listeners) {
+            m.statsModified();
+        }
     }
 }

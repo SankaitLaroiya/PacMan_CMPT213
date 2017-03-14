@@ -7,8 +7,6 @@ import java.awt.*;
 import java.util.Collections;
 
 import static ca.cmpt213.CatAndMouse.Logic.MazeActorController.playerPos;
-import static ca.cmpt213.CatAndMouse.UI.MazeTerminalUI.printMaze;
-import static ca.cmpt213.CatAndMouse.UI.MazeTerminalUI.showGameMenu;
 
 import javax.swing.*;
 
@@ -18,7 +16,6 @@ import javax.swing.*;
  */
 public class MazeGame {
     public static boolean gameLost = false;
-    public static int numCheeseCollected = 0;
 
     public static void main(String[] args) {
         //The assignment spec wants the maze to be only 20 x 15 however, the values of
@@ -33,23 +30,24 @@ public class MazeGame {
         gameMaze.constructMaze();
         MazeActorController.initGameActors(gameMaze);
 
-        showGameMenu(true);
-
         gameMaze.revealFog(playerPos);
 
         JFrame frame = new JFrame();                            // Make the frame
-        frame.setLayout(new GridBagLayout());                      // How items fit in frame.
-        frame.add(new MazeInputController(gameMaze));
 
+        frame.setLayout(new BorderLayout());                // How items fit in frame.
 
-        //TODO: FIGURE OUT HOW TO ADD ELEMENTS IN THE GRID BAG LAYOUT.
+        MazeInputController inputController = new MazeInputController(gameMaze);
+        inputController.setBackground(Color.BLACK);
+
+        frame.add(inputController, BorderLayout.NORTH);
+
+        MazeGUI mazeGUI = new MazeGUI(frame, gameMaze);
+        gameMaze.addMazeModListener(mazeGUI);
 
         frame.pack();                                           // Resize to fit contents.
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);   // When frame closes, end program.
         frame.setVisible(true);
-
-
-        printMaze(gameMaze.getMazeView(), width);
+        frame.setResizable(false);
     }
 
     public static void uncoverMaze(Maze myMaze){

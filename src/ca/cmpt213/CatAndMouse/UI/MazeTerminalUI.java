@@ -25,7 +25,7 @@ public class MazeTerminalUI {
     public static void showGameMenu(boolean initialLaunch) {
         if(initialLaunch) {
             printToScr("\n------------------------------\n");
-            printToScr("Welcome to Chase the Cheese!\nBy Sankait Kumar & Jimmy Tran");
+            printToScr("Welcome to Chase the Cheese!\nBy Sankait Kumar");
             printToScr("\n------------------------------\n");
         }
 

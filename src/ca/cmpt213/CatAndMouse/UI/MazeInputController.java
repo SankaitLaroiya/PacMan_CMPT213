@@ -18,6 +18,8 @@ public class MazeInputController extends JPanel {
     private HashMap keyMap;
     private Maze gameMaze;
 
+    public static String lastInput = "right";
+
     // Names of arrow key actions.
     private static final String[] KEYS = {"UP", "DOWN", "LEFT", "RIGHT", "M", "H", "E"};
 
@@ -50,10 +52,12 @@ public class MazeInputController extends JPanel {
     public AbstractAction getKeyListener(final String move) {
         return new AbstractAction() {
             public void actionPerformed(ActionEvent evt) {
+                lastInput = move;
+
                 switch (move) {
                     case "M":
                         MazeGame.uncoverMaze(gameMaze);
-                        MazeTerminalUI.printMaze(gameMaze.getMazeView(), gameMaze.getMazeWidth());
+                        MazeGUI.playSound(MazeGUI.MAZE_REVEAL);
                         break;
                     case "H":
                         MazeTerminalUI.showGameMenu(false);
@@ -67,11 +71,8 @@ public class MazeInputController extends JPanel {
                     default:
                         //The win condition is checked regularly in ever move of the player and the cats.
                         //See movePlayer and moveCats methods for details.
-
                         MazeActorController.movePlayer((int)keyMap.get(move), gameMaze);
                         MazeActorController.moveCats(gameMaze);
-
-                        MazeTerminalUI.printMaze(gameMaze.getMazeView(), gameMaze.getMazeWidth());
                         break;
                 }
             }

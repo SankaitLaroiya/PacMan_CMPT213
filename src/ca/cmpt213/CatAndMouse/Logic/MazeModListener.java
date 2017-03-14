@@ -5,4 +5,5 @@ package ca.cmpt213.CatAndMouse.Logic;
  */
 public interface MazeModListener {
     void mazeModified();
+    void statsModified();
 }
