@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
- * Class to control all the GUI related tasks.
+ * Class to control all the GUI related tasks (Updating UI, playing sounds, showing alert dialogues).
  */
 public class MazeGUI implements MazeModListener{
 

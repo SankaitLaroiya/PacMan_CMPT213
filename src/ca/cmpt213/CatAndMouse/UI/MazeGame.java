@@ -11,10 +11,20 @@ import static ca.cmpt213.CatAndMouse.Logic.MazeActorController.playerPos;
 import javax.swing.*;
 
 /**
- * Cat and Mouse game's main activity class. Co-ordinates user input with other classes.
+ * Game's main activity class. Initializes the main game loop and other classes.
  * Git Repository @: https://csil-git1.cs.surrey.sfu.ca/sankaitk/CMPT213-ChaseTheCheese.git
+ *
+ * DISCLAIMER:
+ * The sprites and sounds used in this game are properties of their respective owners.
+ * They have been used only for the purpose of this assignment.
+ *
+ * Sources:
+ * Sprites (Pac-man) - https://www.spriters-resource.com/arcade/pacman/sheet/52631/
+ * Sound effects - https://www.sounds-resource.com/game_boy_advance/fireemblemtheblazingblade/sound/8833/
+ *
  */
 public class MazeGame {
+
     public static boolean gameLost = false;
 
     public static void main(String[] args) {
@@ -22,8 +32,8 @@ public class MazeGame {
         //height and width below can be changed to get a game with the desired maze size.
         //for a proper looking maze, please use size height = 20, width = 35 to see the
         //maze algorithm in action
-        int height = 15;
-        int width = 20;
+        int height = 20;
+        int width = 35;
 
         Maze gameMaze = new Maze(height, width);
 

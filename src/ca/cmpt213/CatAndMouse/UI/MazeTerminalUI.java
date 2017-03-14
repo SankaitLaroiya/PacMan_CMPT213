@@ -3,8 +3,9 @@ package ca.cmpt213.CatAndMouse.UI;
 import java.util.ArrayList;
 
 /**
- * Class to handle all the 'printing to console' tasks
+ * Class to handle all the terminal output.
  */
+@SuppressWarnings("unused")
 public class MazeTerminalUI {
 
     public static void printMaze(ArrayList<?> maze, int mazeWidth) {

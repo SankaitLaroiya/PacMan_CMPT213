@@ -10,7 +10,7 @@ import static ca.cmpt213.CatAndMouse.UI.MazeGame.gameLost;
 import static ca.cmpt213.CatAndMouse.UI.MazeGame.uncoverMaze;
 
 /**
- * Class to move the cats every click in the game and handle player moves.
+ * Class to implement player moves, move cats every click of the game and place cheese on the game board.
  */
 public class MazeActorController {
     public static int playerPos;

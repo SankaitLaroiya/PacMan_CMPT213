@@ -10,15 +10,16 @@ import javax.swing.KeyStroke;
 
 /**
  * Class to register key strokes and pass the appropriate input effect on
- * to MazeActorController and MazeGame class.
+ * to MazeActorController and MazeGame class. Also, it keeps track of the user's last input in order to
+ * change the player sprite's mouth orientation.
  */
 @SuppressWarnings("serial")
 public class MazeInputController extends JPanel {
 
+    public static String lastInput = "right";
+
     private HashMap keyMap;
     private Maze gameMaze;
-
-    public static String lastInput = "right";
 
     // Names of arrow key actions.
     private static final String[] KEYS = {"UP", "DOWN", "LEFT", "RIGHT", "M", "H", "E"};
