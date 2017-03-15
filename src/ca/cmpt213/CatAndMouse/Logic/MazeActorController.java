@@ -202,13 +202,13 @@ public class MazeActorController {
         if(gameMaze.getNumCheeseCollected() >= 5) {
             uncoverMaze(gameMaze);
             MazeGUI.playSound(GAME_WON);
-            MazeGUI.infoBox("You Won!", "Game Over");
+            MazeGUI.infoBox("You Won!", "Game Over", GAME_WON);
         }
 
         if(gameLost){
             uncoverMaze(gameMaze);
             MazeGUI.playSound(GAME_LOST);
-            MazeGUI.infoBox("You Lost", "Game Over");
+            MazeGUI.infoBox("You Lost", "Game Over", GAME_LOST);
         }
 
     }

@@ -50,7 +50,7 @@ public class MazeGame {
         inputController.setBackground(Color.BLACK);
         inputController.setLayout(new BorderLayout());
 
-        JLabel instructions = new JLabel("Use arrow keys to move around.", SwingConstants.RIGHT);
+        JLabel instructions = new JLabel("Use arrow keys to move around | E to quit the game", SwingConstants.RIGHT);
 
         instructions.setForeground(Color.WHITE);
 

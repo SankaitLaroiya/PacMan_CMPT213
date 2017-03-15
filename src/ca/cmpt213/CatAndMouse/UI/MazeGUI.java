@@ -29,13 +29,13 @@ public class MazeGUI implements MazeModListener{
     private static JFrame parentFrame;
     private Maze gameMaze;
 
-    private final String playerIMG = "src/sprites/sp_player_right.jpg";
+    private static final String playerIMG = "src/sprites/sp_player_right.jpg";
+    private static final String deadIMG = "src/sprites/sp_dead.jpg";
     private final String wallIMG = "src/sprites/sp_wall.jpg";
     private final String catRedIMG = "src/sprites/sp_red.jpg";
     private final String cheeseIMG = "src/sprites/sp_cheese.jpg";
     private final String fogIMG = "src/sprites/sp_fog.jpg";
     private final String revealIMG = "src/sprites/sp_reveal.jpg";
-    private final String deadIMG = "src/sprites/sp_dead.jpg";
 
     private ImageIcon wall;
     private ImageIcon player;
@@ -132,8 +132,19 @@ public class MazeGUI implements MazeModListener{
         statsPanel.setBackground(Color.BLACK);
     }
 
-    public static void infoBox(String infoMessage, String titleBar) {
-        JOptionPane.showMessageDialog(parentFrame,infoMessage,titleBar,JOptionPane.INFORMATION_MESSAGE);
+    public static void infoBox(String infoMessage, String titleBar, int iconCode) {
+
+        ImageIcon icon = null;
+
+        if(iconCode == GAME_WON) {
+            icon = new ImageIcon(playerIMG);
+        }
+
+        if(iconCode == GAME_LOST) {
+            icon = new ImageIcon(deadIMG);
+        }
+
+        JOptionPane.showMessageDialog(parentFrame,infoMessage,titleBar,JOptionPane.INFORMATION_MESSAGE, icon);
     }
 
     public static void playSound(int context) {
