@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="ChaseTheCheese:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/ChaseTheCheese_jar</output-path>
+    <root id="archive" name="ChaseTheCheese.jar">
+      <element id="module-output" name="ChaseTheCheese" />
+    </root>
+  </artifact>
+</component>

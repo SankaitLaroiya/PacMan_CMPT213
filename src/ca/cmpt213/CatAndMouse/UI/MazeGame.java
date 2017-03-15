@@ -32,8 +32,8 @@ public class MazeGame {
         //height and width below can be changed to get a game with the desired maze size.
         //for a proper looking maze, please use size height = 20, width = 35 to see the
         //maze algorithm in action
-        int height = 20;
-        int width = 35;
+        int height = 15;
+        int width = 20;
 
         Maze gameMaze = new Maze(height, width);
 
@@ -48,6 +48,14 @@ public class MazeGame {
 
         MazeInputController inputController = new MazeInputController(gameMaze);
         inputController.setBackground(Color.BLACK);
+        inputController.setLayout(new BorderLayout());
+
+        JLabel instructions = new JLabel("Use arrow keys to move around.", SwingConstants.RIGHT);
+
+        instructions.setForeground(Color.WHITE);
+
+        inputController.add(instructions,
+                BorderLayout.CENTER);
 
         frame.add(inputController, BorderLayout.NORTH);
 
