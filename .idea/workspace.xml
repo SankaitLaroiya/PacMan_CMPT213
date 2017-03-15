@@ -7,8 +7,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a0326688-fb60-479c-b5e2-a009c0250a67" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/ChaseTheCheese/ca/cmpt213/CatAndMouse/UI/MazeGame.class" afterPath="$PROJECT_DIR$/out/production/ChaseTheCheese/ca/cmpt213/CatAndMouse/UI/MazeGame.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ca/cmpt213/CatAndMouse/UI/MazeGame.java" afterPath="$PROJECT_DIR$/src/ca/cmpt213/CatAndMouse/UI/MazeGame.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -31,8 +29,8 @@
       <file leaf-file-name="MazeGame.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ca/cmpt213/CatAndMouse/UI/MazeGame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="485">
-              <caret line="56" column="41" lean-forward="true" selection-start-line="56" selection-start-column="41" selection-end-line="56" selection-end-column="41" />
+            <state relative-caret-position="57">
+              <caret line="22" column="30" lean-forward="false" selection-start-line="22" selection-start-column="30" selection-end-line="22" selection-end-column="30" />
               <folding>
                 <element signature="method#uncoverMaze#0;class#MazeGame#0" expanded="false" />
               </folding>
@@ -1207,8 +1205,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ca/cmpt213/CatAndMouse/UI/MazeGame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="485">
-          <caret line="56" column="41" lean-forward="true" selection-start-line="56" selection-start-column="41" selection-end-line="56" selection-end-column="41" />
+        <state relative-caret-position="57">
+          <caret line="22" column="30" lean-forward="false" selection-start-line="22" selection-start-column="30" selection-end-line="22" selection-end-column="30" />
           <folding>
             <element signature="method#uncoverMaze#0;class#MazeGame#0" expanded="false" />
           </folding>

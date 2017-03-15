@@ -20,7 +20,7 @@ import javax.swing.*;
  *
  * Sources:
  * Sprites (Pac-man) - https://www.spriters-resource.com/arcade/pacman/sheet/52631/
- * Sound effects - https://www.sounds-resource.com/game_boy_advance/fireemblemtheblazingblade/sound/8833/
+ * Sound effects (Fire Emblem) - https://www.sounds-resource.com/game_boy_advance/fireemblemtheblazingblade/sound/8833/
  *
  */
 public class MazeGame {
